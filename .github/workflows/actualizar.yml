@@ -1,0 +1,32 @@
+name: Actualizar resultados
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: actualizar
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Generar resultados.json
+        env:
+          FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_TOKEN }}
+        run: python scripts/actualizar.py
+      - name: Commit si hay cambios
+        run: |
+          git config user.name "bot-quiniela"
+          git config user.email "bot@users.noreply.github.com"
+          if ! git diff --quiet resultados.json; then
+            git add resultados.json
+            git commit -m "Resultados $(date -u +'%Y-%m-%d %H:%M')Z"
+            git push
+          else
+            echo "Sin cambios."
+          fi
