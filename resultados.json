@@ -1,0 +1,162 @@
+{
+"updated": "seed-18-jun",
+"matches": {
+"M01": {
+"rl": 2,
+"rv": 0,
+"st": "FINISHED"
+},
+"M02": {
+"rl": 2,
+"rv": 1,
+"st": "FINISHED"
+},
+"M03": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M04": {
+"rl": 4,
+"rv": 1,
+"st": "FINISHED"
+},
+"M05": {
+"rl": 0,
+"rv": 1,
+"st": "FINISHED"
+},
+"M06": {
+"rl": 2,
+"rv": 0,
+"st": "FINISHED"
+},
+"M07": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M08": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M09": {
+"rl": 1,
+"rv": 0,
+"st": "FINISHED"
+},
+"M10": {
+"rl": 7,
+"rv": 1,
+"st": "FINISHED"
+},
+"M11": {
+"rl": 2,
+"rv": 2,
+"st": "FINISHED"
+},
+"M12": {
+"rl": 5,
+"rv": 1,
+"st": "FINISHED"
+},
+"M13": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M14": {
+"rl": 0,
+"rv": 0,
+"st": "FINISHED"
+},
+"M15": {
+"rl": 2,
+"rv": 2,
+"st": "FINISHED"
+},
+"M16": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M17": {
+"rl": 3,
+"rv": 1,
+"st": "FINISHED"
+},
+"M18": {
+"rl": 1,
+"rv": 4,
+"st": "FINISHED"
+},
+"M19": {
+"rl": 3,
+"rv": 0,
+"st": "FINISHED"
+},
+"M20": {
+"rl": 3,
+"rv": 1,
+"st": "FINISHED"
+},
+"M21": {
+"rl": 1,
+"rv": 0,
+"st": "FINISHED"
+},
+"M22": {
+"rl": 4,
+"rv": 2,
+"st": "FINISHED"
+},
+"M23": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M24": {
+"rl": 1,
+"rv": 3,
+"st": "FINISHED"
+},
+"M25": {
+"rl": 1,
+"rv": 1,
+"st": "FINISHED"
+},
+"M26": {
+"rl": 4,
+"rv": 1,
+"st": "FINISHED"
+},
+"M27": {
+"rl": 6,
+"rv": 0,
+"st": "FINISHED"
+},
+"M28": {
+"rl": 1,
+"rv": 0,
+"st": "FINISHED"
+}
+},
+"scorers": [
+{
+"n": "Lionel Messi",
+"t": "ARG",
+"g": 3
+},
+{
+"n": "Kylian Mbappé",
+"t": "FRA",
+"g": 2
+},
+{
+"n": "Erling Haaland",
+"t": "NOR",
+"g": 2
+}
+]
+}
