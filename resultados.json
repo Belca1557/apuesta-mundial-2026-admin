@@ -1,145 +1,268 @@
 {
-"updated": "seed-18-jun",
+"updated": "2026-06-19T19:51:51Z",
 "matches": {
 "M01": {
+"st": "FINISHED",
 "rl": 2,
-"rv": 0,
-"st": "FINISHED"
+"rv": 0
 },
 "M02": {
+"st": "FINISHED",
 "rl": 2,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M03": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M04": {
+"st": "FINISHED",
 "rl": 4,
-"rv": 1,
-"st": "FINISHED"
-},
-"M05": {
-"rl": 0,
-"rv": 1,
-"st": "FINISHED"
-},
-"M06": {
-"rl": 2,
-"rv": 0,
-"st": "FINISHED"
-},
-"M07": {
-"rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M08": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
-"M09": {
+"M07": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 0,
-"st": "FINISHED"
+"rv": 1
+},
+"M05": {
+"st": "FINISHED",
+"rl": 0,
+"rv": 1
+},
+"M06": {
+"st": "FINISHED",
+"rl": 2,
+"rv": 0
 },
 "M10": {
+"st": "FINISHED",
 "rl": 7,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M11": {
+"st": "FINISHED",
 "rl": 2,
-"rv": 2,
-"st": "FINISHED"
+"rv": 2
+},
+"M09": {
+"st": "FINISHED",
+"rl": 1,
+"rv": 0
 },
 "M12": {
+"st": "FINISHED",
 "rl": 5,
-"rv": 1,
-"st": "FINISHED"
-},
-"M13": {
-"rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M14": {
+"st": "FINISHED",
 "rl": 0,
-"rv": 0,
-"st": "FINISHED"
-},
-"M15": {
-"rl": 2,
-"rv": 2,
-"st": "FINISHED"
+"rv": 0
 },
 "M16": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
+},
+"M15": {
+"st": "FINISHED",
+"rl": 2,
+"rv": 2
 },
 "M17": {
+"st": "FINISHED",
 "rl": 3,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M18": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 4,
-"st": "FINISHED"
+"rv": 4
 },
 "M19": {
+"st": "FINISHED",
 "rl": 3,
-"rv": 0,
-"st": "FINISHED"
+"rv": 0
 },
 "M20": {
+"st": "FINISHED",
 "rl": 3,
-"rv": 1,
-"st": "FINISHED"
-},
-"M21": {
-"rl": 1,
-"rv": 0,
-"st": "FINISHED"
-},
-"M22": {
-"rl": 4,
-"rv": 2,
-"st": "FINISHED"
+"rv": 1
 },
 "M23": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
+},
+"M22": {
+"st": "FINISHED",
+"rl": 4,
+"rv": 2
+},
+"M21": {
+"st": "FINISHED",
+"rl": 1,
+"rv": 0
 },
 "M24": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 3,
-"st": "FINISHED"
+"rv": 3
 },
 "M25": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M26": {
+"st": "FINISHED",
 "rl": 4,
-"rv": 1,
-"st": "FINISHED"
+"rv": 1
 },
 "M27": {
+"st": "FINISHED",
 "rl": 6,
-"rv": 0,
-"st": "FINISHED"
+"rv": 0
 },
 "M28": {
+"st": "FINISHED",
 "rl": 1,
-"rv": 0,
-"st": "FINISHED"
+"rv": 0
+},
+"M32": {
+"st": "IN_PLAY",
+"rl": 2,
+"rv": 0
+},
+"M30": {
+"st": "TIMED"
+},
+"M29": {
+"st": "TIMED"
+},
+"M31": {
+"st": "TIMED"
+},
+"M35": {
+"st": "TIMED"
+},
+"M33": {
+"st": "TIMED"
+},
+"M34": {
+"st": "TIMED"
+},
+"M36": {
+"st": "TIMED"
+},
+"M38": {
+"st": "TIMED"
+},
+"M39": {
+"st": "TIMED"
+},
+"M40": {
+"st": "TIMED"
+},
+"M43": {
+"st": "TIMED"
+},
+"M42": {
+"st": "TIMED"
+},
+"M41": {
+"st": "TIMED"
+},
+"M44": {
+"st": "TIMED"
+},
+"M47": {
+"st": "TIMED"
+},
+"M45": {
+"st": "TIMED"
+},
+"M46": {
+"st": "TIMED"
+},
+"M48": {
+"st": "TIMED"
+},
+"M51": {
+"st": "TIMED"
+},
+"M52": {
+"st": "TIMED"
+},
+"M50": {
+"st": "TIMED"
+},
+"M49": {
+"st": "TIMED"
+},
+"M53": {
+"st": "TIMED"
+},
+"M54": {
+"st": "TIMED"
+},
+"M56": {
+"st": "TIMED"
+},
+"M55": {
+"st": "TIMED"
+},
+"M58": {
+"st": "TIMED"
+},
+"M57": {
+"st": "TIMED"
+},
+"M59": {
+"st": "TIMED"
+},
+"M60": {
+"st": "TIMED"
+},
+"M61": {
+"st": "TIMED"
+},
+"M62": {
+"st": "TIMED"
+},
+"M65": {
+"st": "TIMED"
+},
+"M64": {
+"st": "TIMED"
+},
+"M63": {
+"st": "TIMED"
+},
+"M67": {
+"st": "TIMED"
+},
+"M68": {
+"st": "TIMED"
+},
+"M71": {
+"st": "TIMED"
+},
+"M72": {
+"st": "TIMED"
+},
+"M70": {
+"st": "TIMED"
+},
+"M69": {
+"st": "TIMED"
 }
 },
 "scorers": [
@@ -149,13 +272,13 @@
 "g": 3
 },
 {
-"n": "Kylian Mbappé",
-"t": "FRA",
-"g": 2
+"n": "Jonathan David",
+"t": "CAN",
+"g": 3
 },
 {
-"n": "Erling Haaland",
-"t": "NOR",
+"n": "Cyle Larin",
+"t": "CAN",
 "g": 2
 }
 ]
