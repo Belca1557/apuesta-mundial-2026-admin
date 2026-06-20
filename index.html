@@ -180,10 +180,9 @@ function render(){
  document.getElementById('sub').textContent=`${played}/72 finalizados${liveTxt} · 18 participantes · 3 pts exacto / 1 pt ganador · datos: ${upTxt}`;
  document.getElementById('prog').textContent=`${played}/72 finalizados · mostrando ${shown}`;
 }
-const RAW='https://raw.githubusercontent.com/Belca1557/apuesta-mundial-2026-admin/main/resultados.json';
 let lastOk=Date.now();
 async function load(){
- try{const r=await fetch(RAW+'?v='+Date.now(),{cache:'no-store'});
+ try{const r=await fetch('resultados.json?v='+Date.now(),{cache:'no-store'});
    if(r.ok){const j=await r.json();RES.matches=j.matches||{};if(j.scorers&&j.scorers.length)RES.scorers=j.scorers;RES.updated=j.updated||null;lastOk=Date.now();}
  }catch(e){console.warn('No se pudo cargar resultados.json',e);}
  render(); tickFresh();
