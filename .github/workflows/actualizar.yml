@@ -1,8 +1,6 @@
 name: Actualizar resultados
 on:
-  schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+  workflow_dispatch:        # lo dispara cron-job.org (cada 2 min) y el botón Run workflow
 permissions:
   contents: write
 concurrency:
@@ -13,20 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Generar resultados.json
         env:
           FOOTBALL_TOKEN: ${{ secrets.FOOTBALL_TOKEN }}
         run: python scripts/actualizar.py
-      - name: Commit si hay cambios
+      - name: Commit y push (con sincronizacion y reintentos)
         run: |
           git config user.name "bot-quiniela"
           git config user.email "bot@users.noreply.github.com"
-          if ! git diff --quiet resultados.json; then
-            git add resultados.json
-            git commit -m "Resultados $(date -u +'%Y-%m-%d %H:%M')Z"
-            git push
-          else
-            echo "Sin cambios."
+          if git diff --quiet resultados.json; then
+            echo "Sin cambios."; exit 0
           fi
+          git add resultados.json
+          git commit -m "Resultados $(date -u +'%Y-%m-%d %H:%M')Z"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && { echo "Push OK"; exit 0; }
+            echo "Remote adelantado, reintento $i..."; sleep 3
+          done
+          echo "No se pudo pushear tras 5 reintentos"; exit 1
