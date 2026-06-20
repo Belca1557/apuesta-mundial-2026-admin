@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-20T21:36:09Z",
+"updated": "2026-06-20T21:58:08Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -288,6 +288,11 @@
 },
 "scorers": [
 {
+"n": "Deniz Undav",
+"t": "GER",
+"g": 3
+},
+{
 "n": "Lionel Messi",
 "t": "ARG",
 "g": 3
@@ -296,11 +301,6 @@
 "n": "Jonathan David",
 "t": "CAN",
 "g": 3
-},
-{
-"n": "Cyle Larin",
-"t": "CAN",
-"g": 2
 }
 ]
 }
