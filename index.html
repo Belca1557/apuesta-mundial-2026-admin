@@ -67,7 +67,8 @@ tfoot td.match{background:var(--head);color:var(--txt);text-align:right}
 </style></head><body><div class="wrap">
 <header>
  <div><h1><span>Apuesta Mundial 2026</span> · Administración</h1>
- <div class="sub" id="sub">Cargando resultados…</div></div>
+ <div class="sub" id="sub">Cargando resultados…</div>
+ <div class="sub" id="fresh" style="margin-top:3px"></div></div>
 </header>
 
 <div id="live"></div>
@@ -179,16 +180,29 @@ function render(){
  document.getElementById('sub').textContent=`${played}/72 finalizados${liveTxt} · 18 participantes · 3 pts exacto / 1 pt ganador · datos: ${upTxt}`;
  document.getElementById('prog').textContent=`${played}/72 finalizados · mostrando ${shown}`;
 }
+const RAW='https://raw.githubusercontent.com/Belca1557/apuesta-mundial-2026-admin/main/resultados.json';
+let lastOk=Date.now();
 async function load(){
- try{const r=await fetch('resultados.json?t='+Date.now(),{cache:'no-store'});
-   if(r.ok){const j=await r.json();RES.matches=j.matches||{};if(j.scorers&&j.scorers.length)RES.scorers=j.scorers;RES.updated=j.updated||null;}
+ try{const r=await fetch(RAW+'?v='+Date.now(),{cache:'no-store'});
+   if(r.ok){const j=await r.json();RES.matches=j.matches||{};if(j.scorers&&j.scorers.length)RES.scorers=j.scorers;RES.updated=j.updated||null;lastOk=Date.now();}
  }catch(e){console.warn('No se pudo cargar resultados.json',e);}
- render();
+ render(); tickFresh();
+}
+function tickFresh(){
+ const el=document.getElementById('fresh'); if(!el)return;
+ if(!RES.updated){el.textContent='';return;}
+ const d=new Date(RES.updated); if(isNaN(d)){el.textContent='';return;}
+ const s=Math.max(0,Math.round((Date.now()-d.getTime())/1000));
+ const rel = s<60?`hace ${s}s` : s<3600?`hace ${Math.floor(s/60)} min` : `hace ${Math.floor(s/3600)} h`;
+ el.innerHTML=`<span style="color:#1f9d61">●</span> en vivo · datos actualizados ${rel}`;
 }
 (function init(){
  [...new Set(MATCHES.map(m=>m.fecha))].forEach(d=>document.getElementById('fDate').innerHTML+=`<option>${d}</option>`);
  [...new Set(MATCHES.map(m=>m.grupo))].sort().forEach(g=>document.getElementById('fGroup').innerHTML+=`<option>${g}</option>`);
  document.getElementById('fDate').onchange=render;document.getElementById('fGroup').onchange=render;
- load(); setInterval(load,60000);
+ load();
+ setInterval(load, 60000);              // re-consulta datos cada 60s (en sitio, sin recargar)
+ setInterval(tickFresh, 1000);          // contador "hace Xs" visible
+ setInterval(()=>{ if(Date.now()-lastOk > 6*60000) location.reload(); }, 60000); // respaldo: si falla el fetch 6 min, recarga sola
 })();
 </script></body></html>
