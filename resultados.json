@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-23T00:10:18Z",
+"updated": "2026-06-23T00:11:08Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -12,7 +12,9 @@
 "rv": 1
 },
 "M03": {
-"st": "FINISHED"
+"st": "FINISHED",
+"rl": 1,
+"rv": 1
 },
 "M04": {
 "st": "FINISHED",
@@ -309,13 +311,13 @@
 "g": 5
 },
 {
-"n": "Deniz Undav",
-"t": "GER",
-"g": 3
-},
-{
 "n": "Kylian Mbappé",
 "t": "FRA",
+"g": 4
+},
+{
+"n": "Deniz Undav",
+"t": "GER",
 "g": 3
 }
 ]
