@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-25T22:04:09Z",
+"updated": "2026-06-25T22:05:12Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -272,10 +272,14 @@
 "rv": 0
 },
 "M56": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 2,
+"rv": 1
 },
 "M55": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 0,
+"rv": 2
 },
 "M58": {
 "st": "TIMED"
