@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-26T10:32:11Z",
+"updated": "2026-06-26T10:51:09Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -272,32 +272,32 @@
 "rv": 0
 },
 "M56": {
-"st": "FINISHED",
+"st": "IN_PLAY",
+"rl": 1,
+"rv": 0
+},
+"M55": {
+"st": "IN_PLAY",
+"rl": 0,
+"rv": 1
+},
+"M58": {
+"st": "IN_PLAY",
+"rl": 2,
+"rv": 2
+},
+"M57": {
+"st": "IN_PLAY",
+"rl": 0,
+"rv": 0
+},
+"M59": {
+"st": "LIVE",
 "rl": 2,
 "rv": 1
 },
-"M55": {
-"st": "FINISHED",
-"rl": 0,
-"rv": 2
-},
-"M58": {
-"st": "FINISHED",
-"rl": 1,
-"rv": 3
-},
-"M57": {
-"st": "FINISHED",
-"rl": 1,
-"rv": 1
-},
-"M59": {
-"st": "FINISHED",
-"rl": 3,
-"rv": 2
-},
 "M60": {
-"st": "FINISHED",
+"st": "IN_PLAY",
 "rl": 0,
 "rv": 0
 },
