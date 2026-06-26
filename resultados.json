@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-26T03:44:09Z",
+"updated": "2026-06-26T03:45:15Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -12,9 +12,7 @@
 "rv": 1
 },
 "M03": {
-"st": "FINISHED",
-"rl": 1,
-"rv": 1
+"st": "FINISHED"
 },
 "M04": {
 "st": "FINISHED",
@@ -272,22 +270,34 @@
 "rv": 0
 },
 "M56": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 2,
+"rv": 1
 },
 "M55": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 0,
+"rv": 2
 },
 "M58": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 1,
+"rv": 3
 },
 "M57": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 1,
+"rv": 1
 },
 "M59": {
-"st": "TIMED"
+"st": "IN_PLAY",
+"rl": 2,
+"rv": 2
 },
 "M60": {
-"st": "TIMED"
+"st": "IN_PLAY",
+"rl": 0,
+"rv": 0
 },
 "M61": {
 "st": "TIMED"
