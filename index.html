@@ -4,7 +4,7 @@
 <title>Apuesta Mundial 2026 · Administración</title>
 <style>
 :root{--gold:#c9a227;--bg:#0e1626;--card:#172338;--line:#27344d;--txt:#e7ecf5;--mut:#93a1bd;
---green-bg:#123a23;--yellow-bg:#352a0e;--zero-bg:#202c42;--navy2:#1f3a5f;--head:#11203a;--red:#e0455e}
+--green:#1f9d61;--green-bg:#123a23;--yellow-bg:#352a0e;--zero-bg:#202c42;--navy2:#1f3a5f;--head:#11203a;--red:#e0455e;--cyan:#36c5d6}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px}
 .wrap{max-width:1500px;margin:0 auto;padding:18px}
@@ -12,58 +12,146 @@ header{display:flex;align-items:center;justify-content:space-between;gap:14px;fl
 h1{font-size:21px;margin:0;letter-spacing:.3px}h1 span{color:var(--gold)}
 .sub{color:var(--mut);font-size:12px;margin-top:4px}
 h2{font-size:14px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin:22px 0 10px}
-/* banner en vivo */
-#live{display:none;background:linear-gradient(90deg,#2a0e15,#1a2233);border:1px solid var(--red);border-radius:12px;padding:11px 14px;margin-bottom:6px}
+#live{display:none;background:linear-gradient(90deg,#2a0e15,#1a2233);border:1px solid var(--red);border-radius:12px;padding:11px 14px;margin-bottom:10px}
 #live.on{display:block}
 #live .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-right:7px;animation:pulse 1.2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 #live b{color:var(--red);letter-spacing:.5px;font-size:12px}
-#live .m{font-size:15px;font-weight:700;margin-top:3px}
-#live .m .sc{color:var(--gold)}
-.rank{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:9px}
+#live .m{font-size:15px;font-weight:700;margin-top:3px}#live .m .sc{color:var(--gold)}
+/* selector */
+.whobar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin-bottom:6px}
+.whobar label{color:var(--mut);font-size:12.5px}
+.whobar .me{margin-left:auto;color:var(--cyan);font-weight:700;font-size:13px}
+select{background:var(--head);color:var(--txt);border:1px solid var(--line);padding:7px 10px;border-radius:8px;font-size:12.5px}
+select.cy{border-color:var(--cyan)}
+.rank{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:9px}
 .rc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 12px;position:relative}
 .rc.lead{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.rc.me{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan) inset}
+.rc.hl{border-color:var(--red)}
 .rc .pos{position:absolute;top:8px;right:10px;color:var(--mut);font-size:11px;font-weight:700}
+.rc .mv{position:absolute;top:8px;right:34px;font-size:10.5px;font-weight:800}
+.mv.up{color:#5fd39a}.mv.dn{color:#ef6b7e}.mv.eq{color:var(--mut)}
 .rc .nm{font-weight:700;font-size:13.5px;margin-bottom:2px}
 .rc .pt{font-size:23px;font-weight:800;color:var(--gold);line-height:1}
 .rc .pt small{font-size:11px;color:var(--mut);font-weight:600}
+.rc .livep{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;color:#ffd0d7;background:#3a1620;border:1px solid var(--red);border-radius:6px;padding:1px 5px;vertical-align:middle}
 .rc .br{height:5px;background:var(--zero-bg);border-radius:4px;margin-top:8px;overflow:hidden}
 .rc .br>i{display:block;height:100%;background:linear-gradient(90deg,#caa53a,#1f9d61)}
 .rc .dt{font-size:10.5px;color:var(--mut);margin-top:6px}
-.rc.hl{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
-.rc .livep{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;color:#ffd0d7;background:#3a1620;border:1px solid var(--red);border-radius:6px;padding:1px 5px;vertical-align:middle}
-.gol{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:640px}
+/* probabilidad */
+.prob{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.prob .row{display:flex;align-items:center;gap:10px;margin:5px 0}
+.prob .nm{width:104px;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prob .nm.me{color:var(--cyan)}.prob .nm.lead{color:var(--gold)}
+.prob .bar{flex:1;height:14px;background:var(--zero-bg);border-radius:7px;overflow:hidden}
+.prob .bar>i{display:block;height:100%;background:linear-gradient(90deg,#caa53a,#1f9d61)}
+.prob .bar>i.me{background:linear-gradient(90deg,#36c5d6,#1f9d61)}
+.prob .pc{width:56px;text-align:right;font-weight:800;color:var(--gold);font-size:13px}
+.prob .pc.me{color:var(--cyan)}
+@media(max-width:600px){.prob .nm{width:84px;font-size:11.5px}.prob .pc{width:48px}}
+/* evolucion */
+.evo{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.evo svg{width:100%;height:auto;display:block}
+.evo .cap{color:var(--mut);font-size:11px;margin-top:6px}
+/* mvp */
+.mvp{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:12px 15px}
+.mvp .trophy{font-size:26px}
+.mvp .who{font-size:17px;font-weight:800}.mvp .who b{color:var(--gold)}
+.mvp .det{color:var(--mut);font-size:12px}
+.mvp .run{margin-left:auto;color:var(--mut);font-size:12px;text-align:right}
+.mvp select{margin-left:6px}
+/* perfil */
+.prof{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px}
+.prof .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.prof .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px;margin-bottom:10px}
+.prof .tile{background:#0f1a2e;border:1px solid var(--line);border-radius:9px;padding:8px 10px;text-align:center}
+.prof .tile b{display:block;font-size:20px;color:var(--gold)}
+.prof .tile span{font-size:10.5px;color:var(--mut)}
+.prof .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prof .bw{background:#0f1a2e;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:12.5px}
+.prof .bw .lbl{color:var(--mut);font-size:11px;margin-bottom:3px}
+.prof .bw.good{border-color:var(--green)}.prof .bw.bad{border-color:var(--red)}
+@media(max-width:560px){.prof .row2{grid-template-columns:1fr}}
+/* pool stats */
+.pstats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ps{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+.ps .lbl{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.ps .big{font-size:13.5px;font-weight:700;margin-top:4px}
+.ps .sm{color:var(--mut);font-size:11.5px;margin-top:2px}
+/* goleadores */
+.gol{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;max-width:640px}
 .gc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 14px;display:flex;align-items:center;gap:12px}
 .gc .medal{font-size:24px}.gc.g1{border-color:var(--gold)}
 .gc .gn{font-weight:700;font-size:14px}.gc .gt{color:var(--mut);font-size:11.5px}
 .gc .gg{margin-left:auto;text-align:right}.gc .gg b{font-size:22px;color:var(--gold)}.gc .gg span{font-size:10px;color:var(--mut);display:block}
 .note{color:var(--mut);font-size:11px;margin-top:6px}
+/* grupos */
+.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.grp-card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:8px 10px}
+.grp-card h3{margin:2px 0 6px;font-size:12px;color:var(--gold);letter-spacing:.5px}
+.grp-card table{width:100%;border-collapse:collapse;font-size:11.5px}
+.grp-card th{color:var(--mut);font-weight:600;text-align:center;padding:2px 3px;border-bottom:1px solid var(--line)}
+.grp-card td{text-align:center;padding:3px 3px;border-bottom:1px solid #1c2740}
+.grp-card td.t{text-align:left;font-weight:700}
+.grp-card tr.q td{background:#0f2a1c}
+.grp-card td.pts{color:var(--gold);font-weight:800}
+/* filtros + tabla */
 .filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 4px}
-select{background:var(--head);color:var(--txt);border:1px solid var(--line);padding:7px 10px;border-radius:8px;font-size:12.5px}
 .prog{color:var(--mut);font-size:12px;margin-left:auto}
-.tw{overflow:auto;max-height:74vh;border:1px solid var(--line);border-radius:12px;margin-top:6px}
-table{border-collapse:separate;border-spacing:0;width:100%;font-size:12.5px}
-thead th{position:sticky;top:0;z-index:5;background:var(--head);border-bottom:2px solid var(--gold);padding:7px 6px;text-align:center;white-space:nowrap}
-thead th .tp{font-size:16px;font-weight:800;color:var(--gold);line-height:1}
-thead th .tn{font-size:11px;font-weight:600;color:var(--txt);margin-top:2px}
-thead th.lead .tn{color:var(--gold)}
-th.cnr{left:0;z-index:6;text-align:left;min-width:150px}
-td.match{position:sticky;left:0;z-index:3;background:var(--card);text-align:left;min-width:150px;font-weight:600;white-space:nowrap}
-td{padding:6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+.tw{overflow:auto;max-height:74vh;border:1px solid var(--line);border-radius:12px;margin-top:6px;-webkit-overflow-scrolling:touch}
+table.main{border-collapse:separate;border-spacing:0;width:100%;font-size:12.5px}
+table.main thead th{position:sticky;top:0;z-index:5;background:var(--head);border-bottom:2px solid var(--gold);padding:7px 6px;text-align:center;white-space:nowrap}
+table.main thead th .tp{font-size:16px;font-weight:800;color:var(--gold);line-height:1}
+table.main thead th .tn{font-size:11px;font-weight:600;color:var(--txt);margin-top:2px}
+table.main thead th.lead .tn{color:var(--gold)}
+table.main thead th.selcol{background:#0c2a30;box-shadow:inset 0 -2px 0 var(--cyan)}
+table.main{--w1:56px;--w2:128px;--w3:42px;--w4:80px}
+th.cnr-date,td.datecol{position:sticky;left:0;width:var(--w1);min-width:var(--w1);max-width:var(--w1);text-align:center;white-space:nowrap;font-size:11px}
+table.main th.cnr,table.main td.match{position:sticky;left:var(--w1);width:var(--w2);min-width:var(--w2);max-width:var(--w2);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+th.cnr-g,td.gcol{position:sticky;left:calc(var(--w1) + var(--w2));width:var(--w3);min-width:var(--w3);max-width:var(--w3);text-align:center}
+th.cnr-r,td.real{position:sticky;left:calc(var(--w1) + var(--w2) + var(--w3));width:var(--w4);min-width:var(--w4);max-width:var(--w4);text-align:center}
+table.main thead th.cnr-date,table.main thead th.cnr,table.main thead th.cnr-g,table.main thead th.cnr-r{background:var(--head);z-index:9}
+th.cnr-date{color:var(--gold)}
+td.datecol{background:var(--card);z-index:4;color:var(--mut);font-weight:700}
+td.match{background:var(--card);z-index:4;font-weight:600}
+td.gcol{background:var(--card);z-index:4}
+td.real{background:var(--card);z-index:4}
+table.main tfoot td.ftlabel{position:sticky;left:var(--w1);z-index:4;background:var(--head);color:var(--txt);text-align:right;font-weight:800}
+table.main tr.newday td{border-top:2px solid var(--gold)}
+table.main td{padding:6px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+td.selcol{box-shadow:inset 1px 0 0 var(--cyan),inset -1px 0 0 var(--cyan)}
 tr.dh td{background:#0c1322;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.6px;font-size:11px;position:sticky;left:0}
 tr.liverow td.match{box-shadow:inset 3px 0 0 var(--red)}
 .grp{display:inline-block;background:var(--navy2);color:#dfe7f5;border-radius:5px;padding:1px 6px;font-size:10.5px}
-.real{font-weight:800}
-.real .lv{background:#0c1322;border:1px solid var(--line);border-radius:6px;padding:2px 7px}
-.real .pend{color:var(--mut);font-weight:600}
-.real .lvlive{border-color:var(--red);color:#ffd0d7}
+.real{font-weight:800}.real .lv{background:#0c1322;border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.real .pend{color:var(--mut);font-weight:600}.real .lvlive{border-color:var(--red);color:#ffd0d7}
 .real .tag{display:block;font-size:8.5px;color:var(--red);font-weight:700;letter-spacing:.5px;margin-top:2px}
-.cell .sc{font-variant-numeric:tabular-nums}
-.cell .tg{font-size:9px;opacity:.8;margin-left:2px}
+.cell .sc{font-variant-numeric:tabular-nums}.cell .tg{font-size:9px;opacity:.8;margin-left:2px}
 .c3{background:var(--green-bg);color:#7ee0a5}.c1{background:var(--yellow-bg);color:#e6c766}.c0{background:var(--zero-bg);color:var(--mut)}.cx{color:var(--mut)}
 .prov{outline:1px dashed var(--red);outline-offset:-3px}
-tfoot td{position:sticky;bottom:0;background:var(--head);border-top:2px solid var(--gold);font-weight:800;color:var(--gold)}
-tfoot td.match{background:var(--head);color:var(--txt);text-align:right}
+table.main tfoot td{position:sticky;bottom:0;background:var(--head);border-top:2px solid var(--gold);font-weight:800;color:var(--gold)}
+table.main tfoot td.match{background:var(--head);color:var(--txt);text-align:right}
+@media(max-width:600px){
+ .wrap{padding:10px}
+ body{font-size:13px}
+ h1{font-size:17px}
+ h2{font-size:13px;margin:16px 0 8px}
+ header{padding-bottom:10px;margin-bottom:12px}
+ .rank{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+ .groups{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+ .pstats{grid-template-columns:1fr 1fr}
+ table.main{--w1:40px;--w2:86px;--w3:26px;--w4:54px;font-size:11px}
+ table.main thead th,table.main td{padding:4px 3px}
+ table.main thead th .tp{font-size:14px}table.main thead th .tn{font-size:9.5px}
+ .tw{max-height:70vh}
+ .whobar,.filters{font-size:12px}
+ .mvp{flex-direction:column;align-items:flex-start}.mvp .run{margin-left:0}
+}
+@media(max-width:400px){
+ .pstats{grid-template-columns:1fr}
+ table.main{--w2:74px}
+}
 </style></head><body><div class="wrap">
 <header>
  <div><h1><span>Apuesta Mundial 2026</span> · Administración</h1>
@@ -73,12 +161,38 @@ tfoot td.match{background:var(--head);color:var(--txt);text-align:right}
 
 <div id="live"></div>
 
+<div class="whobar">
+ <label>👤 Elige tu Nombre</label>
+ <select id="who"><option value="">— Resaltá tu nombre —</option></select>
+ <span class="me" id="meline"></span>
+</div>
+
 <h2>Ranking general</h2>
 <div class="rank" id="rank"></div>
+
+<h2>Probabilidad de ganar el concurso</h2>
+<div class="prob" id="prob"></div>
+<div class="note" id="probnote"></div>
+
+<h2>Evolución del ranking</h2>
+<div class="evo"><div id="evo"></div><div class="cap" id="evocap"></div></div>
+
+<h2>Destacado de la jornada</h2>
+<div class="mvp" id="mvp"></div>
+
+<h2>Perfil del participante</h2>
+<div class="prof" id="prof"></div>
+
+<h2>Estadísticas del pool</h2>
+<div class="pstats" id="pstats"></div>
 
 <h2>Top 3 goleadores del Mundial</h2>
 <div class="gol" id="gol"></div>
 <div class="note" id="golnote"></div>
+
+<h2>Tabla de posiciones · grupos</h2>
+<div class="groups" id="groups"></div>
+<div class="note">Calculada con los partidos finalizados · orden por Pts, luego DG y GF · los 2 primeros (verde) avanzan.</div>
 
 <h2>Partidos y pronósticos</h2>
 <div class="filters">
@@ -86,122 +200,299 @@ tfoot td.match{background:var(--head);color:var(--txt);text-align:right}
  <label>Grupo <select id="fGroup"><option value="">Todos</option></select></label>
  <span class="prog" id="prog"></span>
 </div>
-<div class="tw"><table id="tbl"></table></div>
+<div class="tw"><table class="main" id="tbl"></table></div>
 
 <script>
-const STATIC={"players": ["Anthony", "Stefany", "Andres", "Angela", "Diana", "Bruno", "Edison", "Joel", "Frank", "Genesis", "Jose Q", "Keila", "William", "Leonardo", "Diego", "Poulet", "Maria P", "Johanna"], "matches": [{"id": "M01", "fecha": "11-Jun", "grupo": "A", "local": "MEX", "visit": "RSA", "preds": {"Anthony": [2, 0], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [1, 0], "Edison": [2, 0], "Joel": [2, 0], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 1], "Diego": [3, 1], "Poulet": [1, 0], "Maria P": null, "Johanna": [3, 1]}}, {"id": "M02", "fecha": "11-Jun", "grupo": "A", "local": "KOR", "visit": "CZE", "preds": {"Anthony": [1, 1], "Stefany": [2, 1], "Andres": [0, 1], "Angela": [1, 1], "Diana": [2, 0], "Bruno": [0, 1], "Edison": [1, 1], "Joel": [1, 2], "Frank": [1, 1], "Genesis": [1, 1], "Jose Q": null, "Keila": [1, 1], "William": [3, 1], "Leonardo": [2, 1], "Diego": [1, 2], "Poulet": [3, 1], "Maria P": null, "Johanna": [1, 1]}}, {"id": "M03", "fecha": "12-Jun", "grupo": "B", "local": "CAN", "visit": "BIH", "preds": {"Anthony": [2, 1], "Stefany": [0, 2], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": null, "Keila": [3, 0], "William": [2, 0], "Leonardo": [1, 1], "Diego": [1, 0], "Poulet": [1, 0], "Maria P": [1, 2], "Johanna": [1, 0]}}, {"id": "M04", "fecha": "12-Jun", "grupo": "D", "local": "USA", "visit": "PAR", "preds": {"Anthony": [2, 1], "Stefany": [1, 1], "Andres": [2, 1], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 2], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [2, 1], "Maria P": [0, 1], "Johanna": [1, 1]}}, {"id": "M05", "fecha": "13-Jun", "grupo": "C", "local": "HAI", "visit": "SCO", "preds": {"Anthony": [0, 1], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [0, 2], "Edison": [0, 3], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": null, "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 2], "Diego": [1, 3], "Poulet": [1, 2], "Maria P": [0, 3], "Johanna": [0, 2]}}, {"id": "M06", "fecha": "13-Jun", "grupo": "D", "local": "AUS", "visit": "TUR", "preds": {"Anthony": [1, 2], "Stefany": [1, 0], "Andres": [0, 2], "Angela": [1, 1], "Diana": [2, 1], "Bruno": [1, 2], "Edison": [0, 2], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": null, "Keila": [1, 1], "William": [1, 2], "Leonardo": [1, 1], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [0, 2], "Johanna": [1, 2]}}, {"id": "M07", "fecha": "13-Jun", "grupo": "C", "local": "BRA", "visit": "MAR", "preds": {"Anthony": [2, 1], "Stefany": [3, 0], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [3, 1], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 0], "Diego": [2, 2], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": [2, 1]}}, {"id": "M08", "fecha": "13-Jun", "grupo": "B", "local": "QAT", "visit": "SUI", "preds": {"Anthony": [0, 2], "Stefany": [0, 4], "Andres": [0, 2], "Angela": [0, 2], "Diana": [1, 1], "Bruno": [0, 1], "Edison": [0, 2], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": null, "Keila": [0, 3], "William": [0, 3], "Leonardo": [0, 1], "Diego": [0, 4], "Poulet": [1, 3], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M09", "fecha": "14-Jun", "grupo": "E", "local": "CIV", "visit": "ECU", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [0, 2], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [2, 1], "Edison": [1, 2], "Joel": [1, 2], "Frank": [0, 1], "Genesis": [1, 1], "Jose Q": null, "Keila": [1, 1], "William": [1, 2], "Leonardo": [0, 1], "Diego": [0, 1], "Poulet": [1, 3], "Maria P": [2, 1], "Johanna": [0, 1]}}, {"id": "M10", "fecha": "14-Jun", "grupo": "E", "local": "GER", "visit": "CUW", "preds": {"Anthony": [3, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [3, 0], "Diana": [2, 0], "Bruno": [4, 0], "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 0], "Jose Q": null, "Keila": [4, 0], "William": [4, 0], "Leonardo": [3, 0], "Diego": [6, 0], "Poulet": null, "Maria P": [3, 0], "Johanna": [4, 0]}}, {"id": "M11", "fecha": "14-Jun", "grupo": "F", "local": "NED", "visit": "JPN", "preds": {"Anthony": [1, 2], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [2, 1], "Diana": [2, 0], "Bruno": [3, 1], "Edison": [2, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 2], "Diego": [1, 2], "Poulet": [2, 2], "Maria P": [2, 0], "Johanna": [1, 1]}}, {"id": "M12", "fecha": "14-Jun", "grupo": "F", "local": "SWE", "visit": "TUN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 1], "Diana": [0, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [1, 0], "Jose Q": null, "Keila": [1, 0], "William": [1, 0], "Leonardo": [2, 0], "Diego": [2, 1], "Poulet": [3, 2], "Maria P": [1, 1], "Johanna": [1, 0]}}, {"id": "M13", "fecha": "15-Jun", "grupo": "H", "local": "KSA", "visit": "URU", "preds": {"Anthony": [1, 2], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [1, 2], "Edison": [1, 1], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [2, 1], "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 1], "Diego": [1, 2], "Poulet": [0, 1], "Maria P": [0, 1], "Johanna": [0, 2]}}, {"id": "M14", "fecha": "15-Jun", "grupo": "H", "local": "ESP", "visit": "CPV", "preds": {"Anthony": [3, 0], "Stefany": [5, 0], "Andres": [4, 0], "Angela": [3, 0], "Diana": [3, 0], "Bruno": [4, 0], "Edison": [5, 1], "Joel": [4, 0], "Frank": [4, 0], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [5, 0], "Diego": [4, 0], "Poulet": null, "Maria P": [5, 0], "Johanna": [3, 0]}}, {"id": "M15", "fecha": "15-Jun", "grupo": "G", "local": "IRN", "visit": "NZL", "preds": {"Anthony": [2, 0], "Stefany": [1, 1], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [1, 0], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [1, 1], "Leonardo": [1, 0], "Diego": [0, 0], "Poulet": [1, 1], "Maria P": [0, 0], "Johanna": [1, 0]}}, {"id": "M16", "fecha": "15-Jun", "grupo": "G", "local": "BEL", "visit": "EGY", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 1], "Angela": [2, 0], "Diana": [1, 2], "Bruno": [3, 1], "Edison": [2, 2], "Joel": [2, 1], "Frank": [3, 1], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [2, 0], "Maria P": [4, 0], "Johanna": [2, 1]}}, {"id": "M17", "fecha": "16-Jun", "grupo": "I", "local": "FRA", "visit": "SEN", "preds": {"Anthony": [2, 1], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [3, 1], "Frank": [3, 1], "Genesis": [3, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [3, 0], "Johanna": [2, 1]}}, {"id": "M18", "fecha": "16-Jun", "grupo": "I", "local": "IRQ", "visit": "NOR", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [1, 2], "Diana": [0, 1], "Bruno": [0, 1], "Edison": [0, 2], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [1, 3], "Jose Q": [1, 2], "Keila": [1, 3], "William": [0, 3], "Leonardo": [0, 2], "Diego": [0, 2], "Poulet": [2, 1], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M19", "fecha": "16-Jun", "grupo": "J", "local": "ARG", "visit": "ALG", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [2, 1], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": [3, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [3, 1], "Diego": [1, 1], "Poulet": [3, 1], "Maria P": [3, 1], "Johanna": [4, 0]}}, {"id": "M20", "fecha": "16-Jun", "grupo": "J", "local": "AUT", "visit": "JOR", "preds": {"Anthony": [2, 0], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 1], "Diana": [1, 0], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [1, 0], "Genesis": [2, 1], "Jose Q": [1, 0], "Keila": [1, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [1, 2], "Poulet": [4, 2], "Maria P": [1, 0], "Johanna": [2, 0]}}, {"id": "M21", "fecha": "17-Jun", "grupo": "L", "local": "GHA", "visit": "PAN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [0, 0], "William": [2, 0], "Leonardo": [3, 0], "Diego": [0, 1], "Poulet": [2, 3], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M22", "fecha": "17-Jun", "grupo": "L", "local": "ENG", "visit": "CRO", "preds": {"Anthony": [3, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [3, 1], "Diana": [2, 0], "Bruno": [2, 1], "Edison": [1, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [2, 1], "William": [2, 1], "Leonardo": [3, 1], "Diego": [1, 1], "Poulet": [2, 0], "Maria P": [2, 1], "Johanna": [2, 1]}}, {"id": "M23", "fecha": "17-Jun", "grupo": "K", "local": "POR", "visit": "COD", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [3, 1], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [4, 1], "William": [3, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 0], "Maria P": [3, 0], "Johanna": [3, 0]}}, {"id": "M24", "fecha": "17-Jun", "grupo": "K", "local": "UZB", "visit": "COL", "preds": {"Anthony": [1, 1], "Stefany": [0, 1], "Andres": [0, 3], "Angela": [2, 0], "Diana": [0, 2], "Bruno": [0, 3], "Edison": [1, 3], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 1], "William": [0, 2], "Leonardo": [0, 2], "Diego": [1, 2], "Poulet": [0, 2], "Maria P": [1, 2], "Johanna": [0, 2]}}, {"id": "M25", "fecha": "18-Jun", "grupo": "A", "local": "CZE", "visit": "RSA", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 3], "Diana": [1, 1], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [2, 2], "Keila": [1, 0], "William": [1, 1], "Leonardo": [2, 1], "Diego": [1, 0], "Poulet": [2, 2], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M26", "fecha": "18-Jun", "grupo": "B", "local": "SUI", "visit": "BIH", "preds": {"Anthony": [1, 0], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [1, 1], "Diana": [2, 1], "Bruno": [0, 0], "Edison": [1, 1], "Joel": [1, 2], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [1, 1], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": [2, 0]}}, {"id": "M27", "fecha": "18-Jun", "grupo": "B", "local": "CAN", "visit": "QAT", "preds": {"Anthony": [2, 0], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [2, 0], "Bruno": [2, 1], "Edison": [4, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [2, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [2, 1], "Diego": [1, 0], "Poulet": [4, 2], "Maria P": [2, 1], "Johanna": [2, 0]}}, {"id": "M28", "fecha": "18-Jun", "grupo": "A", "local": "MEX", "visit": "KOR", "preds": {"Anthony": [2, 0], "Stefany": [1, 1], "Andres": [1, 2], "Angela": [3, 1], "Diana": [1, 2], "Bruno": [2, 2], "Edison": [1, 1], "Joel": [1, 2], "Frank": [1, 1], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 1], "William": [2, 2], "Leonardo": [1, 2], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": null}}, {"id": "M29", "fecha": "19-Jun", "grupo": "C", "local": "BRA", "visit": "HAI", "preds": {"Anthony": [3, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [3, 1], "Diana": [4, 1], "Bruno": [6, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [4, 0], "Jose Q": [4, 0], "Keila": [2, 1], "William": [3, 0], "Leonardo": [4, 0], "Diego": [3, 0], "Poulet": [4, 1], "Maria P": [3, 0], "Johanna": null}}, {"id": "M30", "fecha": "19-Jun", "grupo": "C", "local": "SCO", "visit": "MAR", "preds": {"Anthony": [1, 1], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [2, 3], "Diana": [1, 0], "Bruno": [0, 3], "Edison": [1, 3], "Joel": [1, 3], "Frank": [1, 2], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [1, 3], "Leonardo": [1, 2], "Diego": [1, 2], "Poulet": [0, 3], "Maria P": [1, 1], "Johanna": null}}, {"id": "M31", "fecha": "19-Jun", "grupo": "D", "local": "TUR", "visit": "PAR", "preds": {"Anthony": [1, 0], "Stefany": [1, 2], "Andres": [1, 2], "Angela": [2, 1], "Diana": [0, 2], "Bruno": [2, 2], "Edison": [1, 1], "Joel": [1, 1], "Frank": [0, 1], "Genesis": [1, 1], "Jose Q": [1, 2], "Keila": [0, 0], "William": [1, 1], "Leonardo": [1, 1], "Diego": [2, 1], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M32", "fecha": "19-Jun", "grupo": "D", "local": "USA", "visit": "AUS", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [0, 2], "Bruno": [3, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [3, 1], "William": [2, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M33", "fecha": "20-Jun", "grupo": "E", "local": "GER", "visit": "CIV", "preds": {"Anthony": [3, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [3, 1], "Diana": [1, 0], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [1, 1], "Frank": [2, 1], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [3, 1], "William": [2, 1], "Leonardo": [3, 2], "Diego": [1, 1], "Poulet": [6, 2], "Maria P": [2, 2], "Johanna": null}}, {"id": "M34", "fecha": "20-Jun", "grupo": "E", "local": "ECU", "visit": "CUW", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [3, 0], "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 1], "Jose Q": [4, 0], "Keila": [2, 0], "William": [4, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": null}}, {"id": "M35", "fecha": "20-Jun", "grupo": "F", "local": "NED", "visit": "SWE", "preds": {"Anthony": [2, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [2, 0], "Diana": [3, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 2], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [4, 2], "Maria P": [2, 1], "Johanna": null}}, {"id": "M36", "fecha": "20-Jun", "grupo": "F", "local": "TUN", "visit": "JPN", "preds": {"Anthony": [0, 2], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 2], "Bruno": [0, 2], "Edison": [0, 3], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [0, 1], "Poulet": [3, 3], "Maria P": [1, 2], "Johanna": null}}, {"id": "M37", "fecha": "21-Jun", "grupo": "H", "local": "URU", "visit": "CPV", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [2, 1], "Bruno": [4, 1], "Edison": [3, 0], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [2, 0], "Jose Q": [2, 0], "Keila": [2, 0], "William": [2, 1], "Leonardo": [2, 0], "Diego": [1, 0], "Poulet": [2, 3], "Maria P": [2, 0], "Johanna": null}}, {"id": "M38", "fecha": "21-Jun", "grupo": "H", "local": "ESP", "visit": "KSA", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [3, 1], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 0], "Jose Q": [3, 0], "Keila": [3, 1], "William": [2, 0], "Leonardo": [3, 0], "Diego": [1, 0], "Poulet": [3, 1], "Maria P": [3, 0], "Johanna": null}}, {"id": "M39", "fecha": "21-Jun", "grupo": "G", "local": "BEL", "visit": "IRN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [3, 1], "Diana": [0, 2], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [3, 0], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [4, 0], "Leonardo": [2, 0], "Diego": [3, 1], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M40", "fecha": "21-Jun", "grupo": "G", "local": "NZL", "visit": "EGY", "preds": {"Anthony": [0, 2], "Stefany": [0, 1], "Andres": [0, 1], "Angela": [2, 0], "Diana": [1, 2], "Bruno": [1, 1], "Edison": [1, 2], "Joel": [0, 1], "Frank": [1, 2], "Genesis": [1, 1], "Jose Q": [2, 0], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 2], "Diego": [0, 1], "Poulet": [2, 3], "Maria P": [1, 1], "Johanna": null}}, {"id": "M41", "fecha": "22-Jun", "grupo": "I", "local": "NOR", "visit": "SEN", "preds": {"Anthony": [1, 1], "Stefany": [0, 2], "Andres": [1, 2], "Angela": [1, 2], "Diana": [2, 0], "Bruno": [1, 1], "Edison": [2, 2], "Joel": [1, 1], "Frank": [2, 1], "Genesis": [1, 2], "Jose Q": [3, 2], "Keila": [2, 1], "William": [2, 1], "Leonardo": [1, 1], "Diego": [1, 1], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M42", "fecha": "22-Jun", "grupo": "I", "local": "FRA", "visit": "IRQ", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [3, 1], "Diana": [2, 2], "Bruno": [4, 1], "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [4, 0], "Jose Q": [3, 0], "Keila": [4, 1], "William": [4, 1], "Leonardo": [3, 0], "Diego": [3, 1], "Poulet": [4, 1], "Maria P": [3, 0], "Johanna": null}}, {"id": "M43", "fecha": "22-Jun", "grupo": "J", "local": "ARG", "visit": "AUT", "preds": {"Anthony": [2, 1], "Stefany": [3, 1], "Andres": [2, 0], "Angela": [3, 1], "Diana": [1, 0], "Bruno": [3, 0], "Edison": [2, 2], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [3, 0], "Jose Q": [3, 0], "Keila": [3, 0], "William": [2, 0], "Leonardo": [3, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": null}}, {"id": "M44", "fecha": "22-Jun", "grupo": "J", "local": "JOR", "visit": "ALG", "preds": {"Anthony": [0, 2], "Stefany": [1, 2], "Andres": [0, 1], "Angela": [1, 2], "Diana": [0, 1], "Bruno": [1, 1], "Edison": [0, 2], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [0, 1], "William": [1, 1], "Leonardo": [0, 2], "Diego": [1, 1], "Poulet": [2, 2], "Maria P": [1, 2], "Johanna": null}}, {"id": "M45", "fecha": "23-Jun", "grupo": "L", "local": "ENG", "visit": "GHA", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [3, 1], "Diana": [3, 2], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [2, 2], "Frank": [3, 1], "Genesis": [3, 1], "Jose Q": [2, 0], "Keila": [2, 0], "William": [3, 1], "Leonardo": [3, 1], "Diego": [2, 1], "Poulet": [3, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M46", "fecha": "23-Jun", "grupo": "L", "local": "PAN", "visit": "CRO", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 3], "Angela": [1, 1], "Diana": [1, 2], "Bruno": [0, 1], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 2], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [0, 2], "Leonardo": [1, 2], "Diego": [0, 2], "Poulet": [2, 1], "Maria P": [1, 2], "Johanna": null}}, {"id": "M47", "fecha": "23-Jun", "grupo": "K", "local": "POR", "visit": "UZB", "preds": {"Anthony": [2, 1], "Stefany": [3, 0], "Andres": [2, 0], "Angela": [3, 0], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [4, 0], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [4, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M48", "fecha": "23-Jun", "grupo": "K", "local": "COL", "visit": "COD", "preds": {"Anthony": [2, 0], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 0], "Diana": [2, 0], "Bruno": [3, 1], "Edison": [2, 2], "Joel": [2, 0], "Frank": [3, 0], "Genesis": [2, 1], "Jose Q": [1, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": null}}, {"id": "M49", "fecha": "24-Jun", "grupo": "C", "local": "SCO", "visit": "BRA", "preds": {"Anthony": [0, 2], "Stefany": [1, 3], "Andres": [1, 3], "Angela": [0, 2], "Diana": [1, 3], "Bruno": [0, 3], "Edison": [1, 2], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 3], "Jose Q": [1, 2], "Keila": [1, 3], "William": [1, 3], "Leonardo": [0, 2], "Diego": [0, 2], "Poulet": [0, 2], "Maria P": [0, 2], "Johanna": null}}, {"id": "M50", "fecha": "24-Jun", "grupo": "C", "local": "MAR", "visit": "HAI", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [3, 1], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 1], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [3, 0], "Diego": [3, 0], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M51", "fecha": "24-Jun", "grupo": "B", "local": "SUI", "visit": "CAN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 1], "Bruno": [1, 2], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": [2, 1], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 1], "Diego": [2, 0], "Poulet": [1, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M52", "fecha": "24-Jun", "grupo": "B", "local": "BIH", "visit": "QAT", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 1], "Bruno": [0, 0], "Edison": [2, 1], "Joel": [1, 1], "Frank": [0, 1], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 1], "Diego": [1, 0], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M53", "fecha": "24-Jun", "grupo": "A", "local": "CZE", "visit": "MEX", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [1, 0], "Angela": [1, 2], "Diana": [1, 1], "Bruno": [0, 1], "Edison": [1, 2], "Joel": [0, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [1, 1], "William": [1, 2], "Leonardo": [1, 2], "Diego": [0, 2], "Poulet": [1, 2], "Maria P": [1, 2], "Johanna": null}}, {"id": "M54", "fecha": "24-Jun", "grupo": "A", "local": "RSA", "visit": "KOR", "preds": {"Anthony": [0, 1], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [1, 2], "Diana": [2, 0], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 3], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [1, 3], "Poulet": [1, 3], "Maria P": [0, 1], "Johanna": null}}, {"id": "M55", "fecha": "25-Jun", "grupo": "E", "local": "CUW", "visit": "CIV", "preds": {"Anthony": [0, 2], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [0, 2], "Diana": [1, 2], "Bruno": [1, 2], "Edison": [1, 4], "Joel": [0, 3], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 4], "Keila": [0, 2], "William": [0, 4], "Leonardo": [1, 3], "Diego": [1, 3], "Poulet": [0, 3], "Maria P": [2, 0], "Johanna": null}}, {"id": "M56", "fecha": "25-Jun", "grupo": "E", "local": "ECU", "visit": "GER", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [2, 1], "Angela": [0, 3], "Diana": [1, 1], "Bruno": [0, 2], "Edison": [1, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [1, 3], "Jose Q": [1, 1], "Keila": [2, 2], "William": [1, 1], "Leonardo": [2, 1], "Diego": [1, 2], "Poulet": [1, 3], "Maria P": [1, 2], "Johanna": null}}, {"id": "M57", "fecha": "25-Jun", "grupo": "F", "local": "JPN", "visit": "SWE", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 0], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 2], "Frank": [2, 2], "Genesis": [2, 1], "Jose Q": [2, 1], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 0], "Diego": [0, 0], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M58", "fecha": "25-Jun", "grupo": "F", "local": "TUN", "visit": "NED", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [1, 2], "Diana": [1, 3], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": [1, 3], "Keila": [0, 3], "William": [0, 2], "Leonardo": [1, 0], "Diego": [0, 3], "Poulet": [0, 2], "Maria P": [0, 2], "Johanna": null}}, {"id": "M59", "fecha": "25-Jun", "grupo": "D", "local": "TUR", "visit": "USA", "preds": {"Anthony": [1, 1], "Stefany": [4, 5], "Andres": [1, 1], "Angela": [1, 2], "Diana": [1, 0], "Bruno": [1, 3], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [1, 2], "William": [1, 2], "Leonardo": [1, 2], "Diego": [1, 2], "Poulet": [0, 2], "Maria P": [1, 2], "Johanna": null}}, {"id": "M60", "fecha": "25-Jun", "grupo": "D", "local": "PAR", "visit": "AUS", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [1, 2], "Diana": [1, 0], "Bruno": [2, 0], "Edison": [1, 3], "Joel": [1, 0], "Frank": [1, 0], "Genesis": [1, 2], "Jose Q": [2, 1], "Keila": [1, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": null}}, {"id": "M61", "fecha": "26-Jun", "grupo": "I", "local": "NOR", "visit": "FRA", "preds": {"Anthony": [1, 2], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [1, 3], "Diana": [2, 3], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 3], "Jose Q": [1, 3], "Keila": [2, 3], "William": [1, 4], "Leonardo": [1, 3], "Diego": [0, 1], "Poulet": [1, 3], "Maria P": [1, 2], "Johanna": null}}, {"id": "M62", "fecha": "26-Jun", "grupo": "I", "local": "SEN", "visit": "IRQ", "preds": {"Anthony": [1, 0], "Stefany": [3, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [2, 1], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [0, 0], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M63", "fecha": "26-Jun", "grupo": "G", "local": "EGY", "visit": "IRN", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [1, 0], "Angela": [1, 0], "Diana": [2, 2], "Bruno": [0, 1], "Edison": [2, 2], "Joel": [1, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [1, 2], "Keila": [1, 1], "William": [1, 1], "Leonardo": [3, 0], "Diego": [1, 0], "Poulet": [1, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M64", "fecha": "26-Jun", "grupo": "G", "local": "NZL", "visit": "BEL", "preds": {"Anthony": [0, 3], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [1, 2], "Edison": [2, 4], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [1, 3], "Jose Q": [2, 2], "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 5], "Diego": [1, 2], "Poulet": [0, 3], "Maria P": [0, 2], "Johanna": null}}, {"id": "M65", "fecha": "26-Jun", "grupo": "H", "local": "CPV", "visit": "KSA", "preds": {"Anthony": [1, 1], "Stefany": [1, 2], "Andres": [0, 1], "Angela": [1, 1], "Diana": [0, 0], "Bruno": [1, 1], "Edison": [1, 2], "Joel": [0, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [1, 1], "Leonardo": [1, 0], "Diego": [0, 2], "Poulet": [1, 2], "Maria P": [0, 2], "Johanna": null}}, {"id": "M66", "fecha": "26-Jun", "grupo": "H", "local": "URU", "visit": "ESP", "preds": {"Anthony": [1, 2], "Stefany": [1, 0], "Andres": [0, 1], "Angela": [1, 2], "Diana": [1, 1], "Bruno": [1, 3], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [1, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": null}}, {"id": "M67", "fecha": "27-Jun", "grupo": "L", "local": "PAN", "visit": "ENG", "preds": {"Anthony": [0, 3], "Stefany": [0, 4], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [0, 2], "Edison": [1, 4], "Joel": [0, 4], "Frank": [0, 4], "Genesis": [0, 4], "Jose Q": [0, 3], "Keila": [0, 3], "William": [1, 3], "Leonardo": [0, 5], "Diego": [1, 3], "Poulet": [0, 3], "Maria P": [0, 3], "Johanna": null}}, {"id": "M68", "fecha": "27-Jun", "grupo": "L", "local": "CRO", "visit": "GHA", "preds": {"Anthony": [2, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 1], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": [2, 1], "Keila": [2, 1], "William": [2, 2], "Leonardo": [1, 1], "Diego": [0, 0], "Poulet": [2, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M69", "fecha": "27-Jun", "grupo": "J", "local": "ALG", "visit": "AUT", "preds": {"Anthony": [1, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [0, 0], "Edison": [1, 2], "Joel": [2, 1], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [1, 1], "William": [1, 1], "Leonardo": [2, 2], "Diego": [2, 2], "Poulet": [1, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M70", "fecha": "27-Jun", "grupo": "J", "local": "JOR", "visit": "ARG", "preds": {"Anthony": [0, 3], "Stefany": [0, 4], "Andres": [0, 3], "Angela": [0, 2], "Diana": [0, 3], "Bruno": [0, 4], "Edison": [0, 4], "Joel": [0, 3], "Frank": [0, 3], "Genesis": [0, 4], "Jose Q": [0, 3], "Keila": [0, 4], "William": [1, 2], "Leonardo": [0, 4], "Diego": [1, 3], "Poulet": [0, 4], "Maria P": [0, 3], "Johanna": null}}, {"id": "M71", "fecha": "27-Jun", "grupo": "K", "local": "COL", "visit": "POR", "preds": {"Anthony": [1, 1], "Stefany": [1, 2], "Andres": [0, 2], "Angela": [2, 0], "Diana": [2, 3], "Bruno": [1, 1], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [2, 3], "William": [1, 2], "Leonardo": [1, 2], "Diego": [1, 3], "Poulet": [1, 1], "Maria P": [1, 2], "Johanna": null}}, {"id": "M72", "fecha": "27-Jun", "grupo": "K", "local": "COD", "visit": "UZB", "preds": {"Anthony": [0, 1], "Stefany": [2, 0], "Andres": [0, 1], "Angela": [2, 1], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [1, 1], "Frank": [0, 2], "Genesis": [2, 0], "Jose Q": [2, 0], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 0], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [0, 1], "Johanna": null}}], "scorers_fallback": [{"n": "Lionel Messi", "t": "ARG", "g": 3}, {"n": "Kylian Mbappé", "t": "FRA", "g": 2}, {"n": "Erling Haaland", "t": "NOR", "g": 2}]};
+const STATIC={"players": ["Anthony", "Stefany", "Andres", "Angela", "Diana", "Bruno", "Edison", "Joel", "Frank", "Genesis", "Jose Q", "Keila", "William", "Leonardo", "Diego", "Poulet", "Maria P", "Johanna"], "matches": [{"id": "M01", "fecha": "11-Jun", "grupo": "A", "local": "MEX", "visit": "RSA", "preds": {"Anthony": [2, 0], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [1, 0], "Edison": [2, 0], "Joel": [2, 0], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 1], "Diego": [3, 1], "Poulet": [1, 0], "Maria P": null, "Johanna": [3, 1]}}, {"id": "M02", "fecha": "11-Jun", "grupo": "A", "local": "KOR", "visit": "CZE", "preds": {"Anthony": [1, 1], "Stefany": [2, 1], "Andres": [0, 1], "Angela": [1, 1], "Diana": [2, 0], "Bruno": [0, 1], "Edison": [1, 1], "Joel": [1, 2], "Frank": [1, 1], "Genesis": [1, 1], "Jose Q": null, "Keila": [1, 1], "William": [1, 1], "Leonardo": [2, 1], "Diego": [1, 2], "Poulet": [3, 1], "Maria P": null, "Johanna": [1, 1]}}, {"id": "M03", "fecha": "12-Jun", "grupo": "B", "local": "CAN", "visit": "BIH", "preds": {"Anthony": [2, 1], "Stefany": [0, 2], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": null, "Keila": [3, 0], "William": [2, 0], "Leonardo": [1, 1], "Diego": [1, 0], "Poulet": [1, 0], "Maria P": [1, 2], "Johanna": [1, 0]}}, {"id": "M04", "fecha": "12-Jun", "grupo": "D", "local": "USA", "visit": "PAR", "preds": {"Anthony": [2, 1], "Stefany": [1, 1], "Andres": [2, 1], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 2], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [2, 1], "Maria P": [0, 1], "Johanna": [1, 1]}}, {"id": "M05", "fecha": "13-Jun", "grupo": "C", "local": "HAI", "visit": "SCO", "preds": {"Anthony": [0, 1], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [0, 2], "Edison": [0, 3], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": null, "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 2], "Diego": [1, 3], "Poulet": [1, 2], "Maria P": [0, 3], "Johanna": [0, 2]}}, {"id": "M06", "fecha": "13-Jun", "grupo": "D", "local": "AUS", "visit": "TUR", "preds": {"Anthony": [1, 2], "Stefany": [1, 2], "Andres": [0, 2], "Angela": [1, 1], "Diana": [2, 1], "Bruno": [1, 2], "Edison": [0, 2], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": null, "Keila": [1, 1], "William": [1, 2], "Leonardo": [1, 1], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [0, 2], "Johanna": [1, 2]}}, {"id": "M07", "fecha": "13-Jun", "grupo": "C", "local": "BRA", "visit": "MAR", "preds": {"Anthony": [2, 1], "Stefany": [3, 1], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [3, 1], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 0], "Diego": [2, 2], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": [2, 1]}}, {"id": "M08", "fecha": "13-Jun", "grupo": "B", "local": "QAT", "visit": "SUI", "preds": {"Anthony": [0, 2], "Stefany": [0, 4], "Andres": [0, 2], "Angela": [0, 2], "Diana": [1, 1], "Bruno": [0, 1], "Edison": [0, 2], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": null, "Keila": [0, 3], "William": [0, 3], "Leonardo": [0, 1], "Diego": [0, 4], "Poulet": [1, 3], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M09", "fecha": "14-Jun", "grupo": "E", "local": "CIV", "visit": "ECU", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [0, 2], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [2, 1], "Edison": [1, 2], "Joel": [1, 2], "Frank": [0, 1], "Genesis": [1, 1], "Jose Q": null, "Keila": [1, 1], "William": [1, 2], "Leonardo": [0, 1], "Diego": [0, 1], "Poulet": [1, 3], "Maria P": [2, 1], "Johanna": [0, 1]}}, {"id": "M10", "fecha": "14-Jun", "grupo": "E", "local": "GER", "visit": "CUW", "preds": {"Anthony": [3, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [3, 0], "Diana": [2, 0], "Bruno": null, "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 0], "Jose Q": null, "Keila": [4, 0], "William": [4, 0], "Leonardo": [3, 0], "Diego": [6, 0], "Poulet": null, "Maria P": [3, 0], "Johanna": [4, 0]}}, {"id": "M11", "fecha": "14-Jun", "grupo": "F", "local": "NED", "visit": "JPN", "preds": {"Anthony": [1, 2], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [2, 1], "Diana": [2, 0], "Bruno": [3, 1], "Edison": [2, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [2, 1], "Jose Q": null, "Keila": [2, 1], "William": [2, 1], "Leonardo": [2, 2], "Diego": [1, 2], "Poulet": [2, 2], "Maria P": [2, 0], "Johanna": [1, 1]}}, {"id": "M12", "fecha": "14-Jun", "grupo": "F", "local": "SWE", "visit": "TUN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 1], "Diana": [0, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [1, 0], "Jose Q": null, "Keila": [1, 0], "William": [1, 0], "Leonardo": [2, 0], "Diego": [2, 1], "Poulet": [3, 2], "Maria P": [1, 1], "Johanna": [1, 0]}}, {"id": "M13", "fecha": "15-Jun", "grupo": "H", "local": "KSA", "visit": "URU", "preds": {"Anthony": [1, 2], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [1, 2], "Edison": [1, 1], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [2, 1], "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 1], "Diego": [1, 2], "Poulet": [0, 1], "Maria P": [0, 1], "Johanna": [0, 2]}}, {"id": "M14", "fecha": "15-Jun", "grupo": "H", "local": "ESP", "visit": "CPV", "preds": {"Anthony": [3, 0], "Stefany": [5, 0], "Andres": [4, 0], "Angela": [3, 0], "Diana": [3, 0], "Bruno": [4, 0], "Edison": [5, 1], "Joel": [4, 0], "Frank": [4, 0], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [5, 0], "Diego": [4, 0], "Poulet": null, "Maria P": [5, 0], "Johanna": [3, 0]}}, {"id": "M15", "fecha": "15-Jun", "grupo": "G", "local": "IRN", "visit": "NZL", "preds": {"Anthony": [2, 0], "Stefany": [1, 1], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [1, 0], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [1, 1], "Leonardo": [1, 0], "Diego": [0, 0], "Poulet": [1, 1], "Maria P": [0, 0], "Johanna": [1, 0]}}, {"id": "M16", "fecha": "15-Jun", "grupo": "G", "local": "BEL", "visit": "EGY", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 1], "Angela": [2, 0], "Diana": [1, 2], "Bruno": [3, 1], "Edison": [2, 2], "Joel": [2, 1], "Frank": [3, 1], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [2, 0], "Maria P": [4, 0], "Johanna": [2, 1]}}, {"id": "M17", "fecha": "16-Jun", "grupo": "I", "local": "FRA", "visit": "SEN", "preds": {"Anthony": [2, 1], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [3, 1], "Frank": [3, 1], "Genesis": [3, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [3, 0], "Johanna": [2, 1]}}, {"id": "M18", "fecha": "16-Jun", "grupo": "I", "local": "IRQ", "visit": "NOR", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [1, 2], "Diana": [0, 1], "Bruno": [0, 1], "Edison": [0, 2], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [1, 3], "Jose Q": [1, 2], "Keila": [1, 3], "William": [0, 3], "Leonardo": [0, 2], "Diego": [0, 2], "Poulet": [2, 1], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M19", "fecha": "16-Jun", "grupo": "J", "local": "ARG", "visit": "ALG", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [2, 1], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": [3, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [3, 1], "Diego": [1, 1], "Poulet": [3, 1], "Maria P": [3, 1], "Johanna": [4, 0]}}, {"id": "M20", "fecha": "16-Jun", "grupo": "J", "local": "AUT", "visit": "JOR", "preds": {"Anthony": [2, 0], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 1], "Diana": [1, 0], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [1, 0], "Genesis": [2, 1], "Jose Q": [1, 0], "Keila": [1, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [1, 2], "Poulet": [4, 2], "Maria P": [1, 0], "Johanna": [2, 0]}}, {"id": "M21", "fecha": "17-Jun", "grupo": "L", "local": "GHA", "visit": "PAN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [0, 0], "William": [2, 1], "Leonardo": [3, 0], "Diego": [0, 1], "Poulet": [2, 3], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M22", "fecha": "17-Jun", "grupo": "L", "local": "ENG", "visit": "CRO", "preds": {"Anthony": [3, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [3, 1], "Diana": [2, 0], "Bruno": [2, 1], "Edison": [1, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [2, 1], "William": [2, 1], "Leonardo": [3, 1], "Diego": [1, 1], "Poulet": [2, 0], "Maria P": [2, 1], "Johanna": [2, 1]}}, {"id": "M23", "fecha": "17-Jun", "grupo": "K", "local": "POR", "visit": "COD", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [3, 1], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [4, 1], "William": [3, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 0], "Maria P": [3, 0], "Johanna": [3, 0]}}, {"id": "M24", "fecha": "17-Jun", "grupo": "K", "local": "UZB", "visit": "COL", "preds": {"Anthony": [1, 1], "Stefany": [0, 1], "Andres": [0, 3], "Angela": [2, 0], "Diana": [0, 2], "Bruno": [0, 3], "Edison": [1, 3], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 1], "William": [0, 2], "Leonardo": [0, 2], "Diego": [1, 2], "Poulet": [0, 2], "Maria P": [1, 2], "Johanna": [0, 2]}}, {"id": "M25", "fecha": "18-Jun", "grupo": "A", "local": "CZE", "visit": "RSA", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 3], "Diana": [1, 1], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [2, 2], "Keila": [1, 0], "William": [1, 1], "Leonardo": [2, 1], "Diego": [1, 0], "Poulet": [2, 2], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M26", "fecha": "18-Jun", "grupo": "B", "local": "SUI", "visit": "BIH", "preds": {"Anthony": [1, 0], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [1, 1], "Diana": [2, 1], "Bruno": [0, 0], "Edison": [1, 1], "Joel": [1, 2], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [1, 1], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": [2, 0]}}, {"id": "M27", "fecha": "18-Jun", "grupo": "B", "local": "CAN", "visit": "QAT", "preds": {"Anthony": [2, 0], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [2, 0], "Bruno": [2, 1], "Edison": [4, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [2, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [2, 1], "Diego": [1, 0], "Poulet": [4, 2], "Maria P": [2, 1], "Johanna": [2, 0]}}, {"id": "M28", "fecha": "18-Jun", "grupo": "A", "local": "MEX", "visit": "KOR", "preds": {"Anthony": [2, 0], "Stefany": [1, 1], "Andres": [1, 2], "Angela": [3, 1], "Diana": [1, 2], "Bruno": [2, 2], "Edison": [1, 1], "Joel": [1, 2], "Frank": [1, 1], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 1], "William": [2, 2], "Leonardo": [1, 2], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": null}}, {"id": "M29", "fecha": "19-Jun", "grupo": "C", "local": "BRA", "visit": "HAI", "preds": {"Anthony": [3, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [3, 1], "Diana": [4, 1], "Bruno": [6, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [4, 0], "Jose Q": [4, 0], "Keila": [2, 1], "William": [3, 0], "Leonardo": [4, 0], "Diego": [3, 0], "Poulet": [4, 1], "Maria P": [3, 0], "Johanna": null}}, {"id": "M30", "fecha": "19-Jun", "grupo": "C", "local": "SCO", "visit": "MAR", "preds": {"Anthony": [1, 1], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [2, 3], "Diana": [2, 0], "Bruno": [0, 3], "Edison": [1, 3], "Joel": [1, 3], "Frank": [1, 2], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [1, 3], "Leonardo": [1, 2], "Diego": [1, 2], "Poulet": [0, 3], "Maria P": [1, 1], "Johanna": null}}, {"id": "M31", "fecha": "19-Jun", "grupo": "D", "local": "TUR", "visit": "PAR", "preds": {"Anthony": [1, 0], "Stefany": [1, 2], "Andres": [1, 2], "Angela": [2, 1], "Diana": [0, 2], "Bruno": [2, 2], "Edison": [1, 1], "Joel": [1, 1], "Frank": [0, 1], "Genesis": [1, 1], "Jose Q": [1, 2], "Keila": [0, 0], "William": [1, 1], "Leonardo": [1, 1], "Diego": [2, 1], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M32", "fecha": "19-Jun", "grupo": "D", "local": "USA", "visit": "AUS", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [0, 2], "Bruno": [3, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [3, 1], "William": [2, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M33", "fecha": "20-Jun", "grupo": "E", "local": "GER", "visit": "CIV", "preds": {"Anthony": [3, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [3, 1], "Diana": [1, 0], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [1, 1], "Frank": [2, 1], "Genesis": [3, 1], "Jose Q": [3, 1], "Keila": [3, 1], "William": [2, 1], "Leonardo": [3, 2], "Diego": [1, 1], "Poulet": [6, 2], "Maria P": [2, 2], "Johanna": null}}, {"id": "M34", "fecha": "20-Jun", "grupo": "E", "local": "ECU", "visit": "CUW", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [3, 0], "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 1], "Jose Q": [4, 0], "Keila": [2, 0], "William": [4, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": null}}, {"id": "M35", "fecha": "20-Jun", "grupo": "F", "local": "NED", "visit": "SWE", "preds": {"Anthony": [2, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [2, 0], "Diana": [3, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 2], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [4, 2], "Maria P": [2, 1], "Johanna": null}}, {"id": "M36", "fecha": "20-Jun", "grupo": "F", "local": "TUN", "visit": "JPN", "preds": {"Anthony": [0, 2], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 2], "Bruno": [0, 2], "Edison": [0, 3], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [0, 1], "Poulet": [3, 3], "Maria P": [1, 2], "Johanna": null}}, {"id": "M37", "fecha": "21-Jun", "grupo": "H", "local": "URU", "visit": "CPV", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [2, 1], "Bruno": [4, 1], "Edison": [3, 0], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [2, 0], "Jose Q": [2, 1], "Keila": [2, 0], "William": [2, 1], "Leonardo": [2, 0], "Diego": [1, 0], "Poulet": [2, 3], "Maria P": [2, 0], "Johanna": [2, 0]}}, {"id": "M38", "fecha": "21-Jun", "grupo": "H", "local": "ESP", "visit": "KSA", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [4, 0], "Angela": [2, 0], "Diana": [1, 0], "Bruno": [3, 1], "Edison": [3, 1], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [3, 0], "Jose Q": [3, 1], "Keila": [3, 1], "William": [2, 0], "Leonardo": [3, 0], "Diego": [1, 0], "Poulet": [3, 1], "Maria P": [3, 0], "Johanna": [7, 1]}}, {"id": "M39", "fecha": "21-Jun", "grupo": "G", "local": "BEL", "visit": "IRN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [3, 1], "Diana": [0, 2], "Bruno": [2, 0], "Edison": [2, 1], "Joel": [2, 0], "Frank": [3, 0], "Genesis": [2, 1], "Jose Q": [2, 0], "Keila": [2, 1], "William": [4, 0], "Leonardo": [2, 0], "Diego": [3, 1], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": [2, 0]}}, {"id": "M40", "fecha": "21-Jun", "grupo": "G", "local": "NZL", "visit": "EGY", "preds": {"Anthony": [0, 2], "Stefany": [0, 1], "Andres": [0, 1], "Angela": [2, 0], "Diana": [1, 2], "Bruno": [1, 1], "Edison": [1, 2], "Joel": [0, 1], "Frank": [1, 2], "Genesis": [1, 1], "Jose Q": [2, 0], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 2], "Diego": [0, 1], "Poulet": [2, 3], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M41", "fecha": "22-Jun", "grupo": "I", "local": "NOR", "visit": "SEN", "preds": {"Anthony": [1, 1], "Stefany": [0, 2], "Andres": [1, 2], "Angela": [1, 2], "Diana": [2, 0], "Bruno": [1, 1], "Edison": [2, 2], "Joel": [1, 1], "Frank": [2, 1], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [2, 1], "William": [2, 1], "Leonardo": [1, 1], "Diego": [1, 1], "Poulet": [3, 1], "Maria P": [2, 1], "Johanna": [1, 1]}}, {"id": "M42", "fecha": "22-Jun", "grupo": "I", "local": "FRA", "visit": "IRQ", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [3, 1], "Diana": [2, 2], "Bruno": [4, 1], "Edison": [3, 0], "Joel": [3, 0], "Frank": [3, 0], "Genesis": [4, 0], "Jose Q": [3, 0], "Keila": [4, 1], "William": [4, 1], "Leonardo": [3, 0], "Diego": [3, 1], "Poulet": [4, 1], "Maria P": [3, 0], "Johanna": [3, 0]}}, {"id": "M43", "fecha": "22-Jun", "grupo": "J", "local": "ARG", "visit": "AUT", "preds": {"Anthony": [2, 1], "Stefany": [3, 1], "Andres": [2, 0], "Angela": [3, 1], "Diana": [1, 0], "Bruno": [3, 0], "Edison": [2, 2], "Joel": [2, 0], "Frank": [2, 0], "Genesis": [3, 0], "Jose Q": [3, 0], "Keila": [3, 0], "William": [2, 0], "Leonardo": [3, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": [2, 0]}}, {"id": "M44", "fecha": "22-Jun", "grupo": "J", "local": "JOR", "visit": "ALG", "preds": {"Anthony": [0, 2], "Stefany": [1, 2], "Andres": [0, 1], "Angela": [1, 2], "Diana": [0, 1], "Bruno": [1, 1], "Edison": [0, 2], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [0, 1], "William": [1, 1], "Leonardo": [0, 2], "Diego": [1, 1], "Poulet": [2, 2], "Maria P": [1, 2], "Johanna": [0, 2]}}, {"id": "M45", "fecha": "23-Jun", "grupo": "L", "local": "ENG", "visit": "GHA", "preds": {"Anthony": [2, 0], "Stefany": [2, 0], "Andres": [2, 0], "Angela": [3, 1], "Diana": [3, 2], "Bruno": [3, 0], "Edison": [2, 1], "Joel": [2, 2], "Frank": [3, 1], "Genesis": [3, 1], "Jose Q": [2, 0], "Keila": [2, 0], "William": [3, 1], "Leonardo": [3, 1], "Diego": [2, 1], "Poulet": [3, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M46", "fecha": "23-Jun", "grupo": "L", "local": "PAN", "visit": "CRO", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 3], "Angela": [1, 1], "Diana": [1, 2], "Bruno": [0, 1], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 2], "Genesis": [2, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [0, 2], "Leonardo": [1, 2], "Diego": [0, 2], "Poulet": [2, 1], "Maria P": [1, 2], "Johanna": null}}, {"id": "M47", "fecha": "23-Jun", "grupo": "K", "local": "POR", "visit": "UZB", "preds": {"Anthony": [2, 1], "Stefany": [3, 0], "Andres": [2, 0], "Angela": [3, 0], "Diana": [2, 0], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 0], "Frank": [2, 0], "Genesis": [4, 0], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [2, 0], "Poulet": [4, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M48", "fecha": "23-Jun", "grupo": "K", "local": "COL", "visit": "COD", "preds": {"Anthony": [2, 0], "Stefany": [2, 1], "Andres": [2, 0], "Angela": [2, 0], "Diana": [2, 0], "Bruno": [3, 1], "Edison": [2, 2], "Joel": [2, 0], "Frank": [3, 0], "Genesis": [2, 1], "Jose Q": [1, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [2, 1], "Diego": [2, 0], "Poulet": [3, 1], "Maria P": [2, 0], "Johanna": null}}, {"id": "M49", "fecha": "24-Jun", "grupo": "C", "local": "SCO", "visit": "BRA", "preds": {"Anthony": [0, 2], "Stefany": [1, 3], "Andres": [1, 3], "Angela": [0, 2], "Diana": [1, 3], "Bruno": [0, 3], "Edison": [1, 2], "Joel": [0, 2], "Frank": [0, 2], "Genesis": [1, 3], "Jose Q": [1, 2], "Keila": [1, 3], "William": [1, 3], "Leonardo": [0, 2], "Diego": [0, 2], "Poulet": [0, 2], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M50", "fecha": "24-Jun", "grupo": "C", "local": "MAR", "visit": "HAI", "preds": {"Anthony": [2, 0], "Stefany": [3, 0], "Andres": [3, 0], "Angela": [2, 0], "Diana": [3, 1], "Bruno": [2, 0], "Edison": [3, 1], "Joel": [3, 1], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [2, 0], "William": [2, 0], "Leonardo": [3, 0], "Diego": [3, 0], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": [2, 0]}}, {"id": "M51", "fecha": "24-Jun", "grupo": "B", "local": "SUI", "visit": "CAN", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 1], "Bruno": [1, 2], "Edison": [2, 1], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [2, 1], "Jose Q": [2, 1], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 1], "Diego": [2, 0], "Poulet": [1, 1], "Maria P": [2, 1], "Johanna": [2, 1]}}, {"id": "M52", "fecha": "24-Jun", "grupo": "B", "local": "BIH", "visit": "QAT", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 1], "Bruno": [0, 0], "Edison": [2, 1], "Joel": [1, 1], "Frank": [0, 1], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 1], "Diego": [1, 0], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": [2, 0]}}, {"id": "M53", "fecha": "24-Jun", "grupo": "A", "local": "CZE", "visit": "MEX", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [1, 0], "Angela": [1, 2], "Diana": [1, 1], "Bruno": [0, 1], "Edison": [1, 2], "Joel": [0, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [1, 1], "William": [1, 2], "Leonardo": [1, 2], "Diego": [0, 2], "Poulet": [1, 2], "Maria P": [1, 2], "Johanna": [1, 1]}}, {"id": "M54", "fecha": "24-Jun", "grupo": "A", "local": "RSA", "visit": "KOR", "preds": {"Anthony": [0, 1], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [1, 2], "Diana": [2, 0], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 3], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [0, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [1, 3], "Poulet": [1, 3], "Maria P": [0, 1], "Johanna": [1, 1]}}, {"id": "M55", "fecha": "25-Jun", "grupo": "E", "local": "CUW", "visit": "CIV", "preds": {"Anthony": [0, 2], "Stefany": [0, 2], "Andres": [0, 3], "Angela": [0, 2], "Diana": [1, 2], "Bruno": [1, 2], "Edison": [1, 4], "Joel": [0, 3], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 4], "Keila": [0, 2], "William": [0, 4], "Leonardo": [1, 3], "Diego": [1, 3], "Poulet": [0, 3], "Maria P": [2, 0], "Johanna": null}}, {"id": "M56", "fecha": "25-Jun", "grupo": "E", "local": "ECU", "visit": "GER", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [2, 1], "Angela": [0, 3], "Diana": [1, 1], "Bruno": [0, 2], "Edison": [1, 1], "Joel": [2, 1], "Frank": [1, 1], "Genesis": [1, 3], "Jose Q": [1, 1], "Keila": [2, 2], "William": [1, 1], "Leonardo": [2, 1], "Diego": [1, 2], "Poulet": [1, 3], "Maria P": [1, 2], "Johanna": [2, 1]}}, {"id": "M57", "fecha": "25-Jun", "grupo": "F", "local": "JPN", "visit": "SWE", "preds": {"Anthony": [1, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [1, 1], "Diana": [1, 0], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 2], "Frank": [2, 2], "Genesis": [2, 1], "Jose Q": [2, 1], "Keila": [2, 1], "William": [2, 0], "Leonardo": [2, 0], "Diego": [0, 0], "Poulet": [2, 1], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M58", "fecha": "25-Jun", "grupo": "F", "local": "TUN", "visit": "NED", "preds": {"Anthony": [0, 2], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [1, 2], "Diana": [1, 3], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [0, 2], "Jose Q": [1, 3], "Keila": [0, 3], "William": [0, 2], "Leonardo": [1, 0], "Diego": [0, 3], "Poulet": [0, 2], "Maria P": [0, 2], "Johanna": [0, 2]}}, {"id": "M59", "fecha": "25-Jun", "grupo": "D", "local": "TUR", "visit": "USA", "preds": {"Anthony": [1, 1], "Stefany": [1, 3], "Andres": [1, 1], "Angela": [1, 2], "Diana": [1, 0], "Bruno": [1, 3], "Edison": [1, 3], "Joel": [1, 2], "Frank": [0, 2], "Genesis": [1, 2], "Jose Q": [1, 1], "Keila": [1, 2], "William": [1, 2], "Leonardo": [1, 2], "Diego": [1, 2], "Poulet": [0, 2], "Maria P": [1, 2], "Johanna": [1, 1]}}, {"id": "M60", "fecha": "25-Jun", "grupo": "D", "local": "PAR", "visit": "AUS", "preds": {"Anthony": [1, 1], "Stefany": [1, 0], "Andres": [2, 0], "Angela": [1, 2], "Diana": [1, 0], "Bruno": [2, 0], "Edison": [1, 3], "Joel": [1, 0], "Frank": [1, 0], "Genesis": [1, 2], "Jose Q": [2, 1], "Keila": [1, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": [1, 1]}}, {"id": "M61", "fecha": "26-Jun", "grupo": "I", "local": "NOR", "visit": "FRA", "preds": {"Anthony": [1, 2], "Stefany": [0, 2], "Andres": [0, 2], "Angela": [1, 3], "Diana": [2, 3], "Bruno": [0, 2], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 3], "Jose Q": [1, 3], "Keila": [2, 3], "William": [1, 4], "Leonardo": [1, 3], "Diego": [0, 1], "Poulet": [1, 3], "Maria P": [1, 2], "Johanna": null}}, {"id": "M62", "fecha": "26-Jun", "grupo": "I", "local": "SEN", "visit": "IRQ", "preds": {"Anthony": [1, 0], "Stefany": [3, 0], "Andres": [2, 0], "Angela": [2, 0], "Diana": [1, 1], "Bruno": [1, 0], "Edison": [3, 1], "Joel": [2, 1], "Frank": [2, 0], "Genesis": [2, 1], "Jose Q": [3, 1], "Keila": [3, 0], "William": [2, 0], "Leonardo": [2, 0], "Diego": [0, 0], "Poulet": [2, 0], "Maria P": [2, 0], "Johanna": null}}, {"id": "M63", "fecha": "26-Jun", "grupo": "G", "local": "EGY", "visit": "IRN", "preds": {"Anthony": [1, 1], "Stefany": [1, 1], "Andres": [1, 0], "Angela": [1, 0], "Diana": [2, 2], "Bruno": [0, 1], "Edison": [2, 2], "Joel": [1, 0], "Frank": [2, 0], "Genesis": [1, 1], "Jose Q": [1, 2], "Keila": [1, 1], "William": [1, 1], "Leonardo": [3, 0], "Diego": [1, 0], "Poulet": [1, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M64", "fecha": "26-Jun", "grupo": "G", "local": "NZL", "visit": "BEL", "preds": {"Anthony": [0, 3], "Stefany": [0, 3], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [1, 2], "Edison": [2, 4], "Joel": [0, 2], "Frank": [0, 3], "Genesis": [1, 3], "Jose Q": [2, 2], "Keila": [0, 2], "William": [0, 2], "Leonardo": [0, 5], "Diego": [1, 2], "Poulet": [0, 3], "Maria P": [0, 2], "Johanna": null}}, {"id": "M65", "fecha": "26-Jun", "grupo": "H", "local": "CPV", "visit": "KSA", "preds": {"Anthony": [1, 1], "Stefany": [1, 2], "Andres": [0, 1], "Angela": [1, 1], "Diana": [0, 0], "Bruno": [1, 1], "Edison": [1, 2], "Joel": [0, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [1, 2], "Keila": [1, 2], "William": [1, 1], "Leonardo": [1, 0], "Diego": [0, 2], "Poulet": [1, 2], "Maria P": [0, 2], "Johanna": null}}, {"id": "M66", "fecha": "26-Jun", "grupo": "H", "local": "URU", "visit": "ESP", "preds": {"Anthony": [1, 2], "Stefany": [1, 2], "Andres": [0, 1], "Angela": [1, 2], "Diana": [1, 1], "Bruno": [1, 3], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [1, 2], "William": [1, 2], "Leonardo": [0, 2], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [1, 1], "Johanna": null}}, {"id": "M67", "fecha": "27-Jun", "grupo": "L", "local": "PAN", "visit": "ENG", "preds": {"Anthony": [0, 3], "Stefany": [0, 4], "Andres": [0, 2], "Angela": [0, 2], "Diana": [0, 1], "Bruno": [0, 2], "Edison": [1, 4], "Joel": [0, 4], "Frank": [0, 4], "Genesis": [0, 4], "Jose Q": [0, 3], "Keila": [0, 3], "William": [1, 3], "Leonardo": [0, 5], "Diego": [1, 3], "Poulet": [0, 3], "Maria P": [0, 3], "Johanna": null}}, {"id": "M68", "fecha": "27-Jun", "grupo": "L", "local": "CRO", "visit": "GHA", "preds": {"Anthony": [2, 1], "Stefany": [2, 0], "Andres": [2, 1], "Angela": [2, 1], "Diana": [2, 1], "Bruno": [2, 1], "Edison": [2, 1], "Joel": [2, 1], "Frank": [2, 1], "Genesis": [2, 0], "Jose Q": [2, 1], "Keila": [2, 1], "William": [2, 2], "Leonardo": [1, 1], "Diego": [0, 0], "Poulet": [2, 1], "Maria P": [2, 1], "Johanna": null}}, {"id": "M69", "fecha": "27-Jun", "grupo": "J", "local": "ALG", "visit": "AUT", "preds": {"Anthony": [1, 1], "Stefany": [2, 1], "Andres": [2, 1], "Angela": [1, 2], "Diana": [1, 2], "Bruno": [0, 0], "Edison": [1, 2], "Joel": [2, 1], "Frank": [2, 1], "Genesis": [2, 1], "Jose Q": [2, 2], "Keila": [1, 1], "William": [1, 1], "Leonardo": [2, 2], "Diego": [2, 2], "Poulet": [1, 1], "Maria P": [1, 1], "Johanna": null}}, {"id": "M70", "fecha": "27-Jun", "grupo": "J", "local": "JOR", "visit": "ARG", "preds": {"Anthony": [0, 3], "Stefany": [0, 4], "Andres": [0, 3], "Angela": [0, 2], "Diana": [0, 3], "Bruno": [0, 4], "Edison": [0, 4], "Joel": [0, 3], "Frank": [0, 3], "Genesis": [0, 4], "Jose Q": [0, 3], "Keila": [0, 4], "William": [1, 2], "Leonardo": [0, 4], "Diego": [1, 3], "Poulet": [0, 4], "Maria P": [0, 3], "Johanna": null}}, {"id": "M71", "fecha": "27-Jun", "grupo": "K", "local": "COL", "visit": "POR", "preds": {"Anthony": [1, 1], "Stefany": [1, 2], "Andres": [0, 2], "Angela": [2, 0], "Diana": [2, 3], "Bruno": [1, 1], "Edison": [1, 3], "Joel": [1, 2], "Frank": [1, 2], "Genesis": [1, 2], "Jose Q": [0, 2], "Keila": [2, 3], "William": [1, 2], "Leonardo": [1, 2], "Diego": [1, 3], "Poulet": [1, 1], "Maria P": [1, 2], "Johanna": null}}, {"id": "M72", "fecha": "27-Jun", "grupo": "K", "local": "COD", "visit": "UZB", "preds": {"Anthony": [0, 1], "Stefany": [2, 0], "Andres": [0, 1], "Angela": [2, 1], "Diana": [1, 1], "Bruno": [1, 1], "Edison": [2, 1], "Joel": [1, 1], "Frank": [0, 2], "Genesis": [2, 0], "Jose Q": [2, 0], "Keila": [1, 1], "William": [1, 1], "Leonardo": [1, 0], "Diego": [1, 1], "Poulet": [1, 2], "Maria P": [0, 1], "Johanna": null}}], "scorers_fallback": [{"n": "Lionel Messi", "t": "ARG", "g": 3}, {"n": "Kylian Mbappé", "t": "FRA", "g": 2}, {"n": "Erling Haaland", "t": "NOR", "g": 2}]};
 const PLAYERS=STATIC.players, MATCHES=STATIC.matches;
 const FINAL=new Set(["FINISHED","AWARDED"]);
 const LIVEST=new Set(["IN_PLAY","PAUSED"]);
 let RES={matches:{},scorers:STATIC.scorers_fallback,updated:null};
+let SELP=null; try{SELP=localStorage.getItem('quiniela_me')||null;}catch(e){}
 const sign=x=>x>0?1:x<0?-1:0;
-function ptsFor(pr,r){ if(!pr||!r)return null; if(pr[0]===r[0]&&pr[1]===r[1])return 3;
-  return sign(pr[0]-pr[1])===sign(r[0]-r[1])?1:0; }
+const dayNum=f=>parseInt((f||'').split('-')[0],10)||0;
+function ptsFor(pr,r){ if(!pr||!r)return null; if(pr[0]===r[0]&&pr[1]===r[1])return 3; return sign(pr[0]-pr[1])===sign(r[0]-r[1])?1:0; }
 function realOf(id){const x=RES.matches[id]; return (x&&x.rl!=null&&x.rv!=null)?[x.rl,x.rv]:null;}
 function statusOf(id){const x=RES.matches[id]; return x?x.st:null;}
 function isFinal(id){return FINAL.has(statusOf(id));}
 function isLive(id){return LIVEST.has(statusOf(id));}
 
-function computeRank(){
+function computeRank(){ // total actual (incluye en vivo provisional)
  const rows=PLAYERS.map(p=>{let tot=0,ex=0,gn=0,ac=0,livePts=0,hasLive=false;
-   MATCHES.forEach(m=>{ const fin=isFinal(m.id),liv=isLive(m.id);
-     if(!fin&&!liv)return; const x=ptsFor(m.preds[p],realOf(m.id));
-     if(x==null)return; tot+=x; if(x===3)ex++; else if(x===1)gn++; if(x>=1)ac++;
-     if(liv){hasLive=true; livePts+=x;} });
+   MATCHES.forEach(m=>{const fin=isFinal(m.id),liv=isLive(m.id); if(!fin&&!liv)return;
+     const x=ptsFor(m.preds[p],realOf(m.id)); if(x==null)return; tot+=x;
+     if(x===3)ex++;else if(x===1)gn++; if(x>=1)ac++; if(liv){hasLive=true;livePts+=x;}});
    return {p,pts:tot,ex,gn,ac,livePts,hasLive};});
- rows.sort((a,b)=>b.pts-a.pts||b.ex-a.ex||b.gn-a.gn);
- return rows;
+ rows.sort((a,b)=>b.pts-a.pts||b.ex-a.ex||b.gn-a.gn); return rows;
+}
+function finishedDates(){ // fechas con >=1 partido final, ordenadas
+ const s=[...new Set(MATCHES.filter(m=>isFinal(m.id)).map(m=>m.fecha))];
+ return s.sort((a,b)=>dayNum(a)-dayNum(b));
+}
+function rankByDay(maxDay){ // finalizados hasta cierto dia
+ const rows=PLAYERS.map(p=>{let tot=0,ex=0,gn=0;
+   MATCHES.forEach(m=>{ if(!isFinal(m.id)||dayNum(m.fecha)>maxDay)return;
+     const x=ptsFor(m.preds[p],realOf(m.id)); if(x==null)return; tot+=x; if(x===3)ex++;else if(x===1)gn++;});
+   return {p,pts:tot,ex,gn};});
+ rows.sort((a,b)=>b.pts-a.pts||b.ex-a.ex||b.gn-a.gn); return rows;
+}
+function posMap(rows){const m={};rows.forEach((r,i)=>m[r.p]=i+1);return m;}
+function ptsForDate(fecha){ // puntos ganados SOLO en esa fecha
+ const o={};PLAYERS.forEach(p=>o[p]=0);
+ MATCHES.forEach(m=>{ if(m.fecha!==fecha||!isFinal(m.id))return;
+   PLAYERS.forEach(p=>{const x=ptsFor(m.preds[p],realOf(m.id)); if(x)o[p]+=x;});});
+ return o;
+}
+function standings(){ // por grupo, de partidos finalizados
+ const groups={};
+ MATCHES.forEach(m=>{ (groups[m.grupo]=groups[m.grupo]||new Set()).add(m.local); groups[m.grupo].add(m.visit);});
+ const out={};
+ Object.keys(groups).sort().forEach(g=>{
+   const teams={}; [...groups[g]].forEach(t=>teams[t]={t,pj:0,g:0,e:0,p:0,gf:0,gc:0});
+   MATCHES.forEach(m=>{ if(m.grupo!==g||!isFinal(m.id))return; const r=realOf(m.id); if(!r)return;
+     const L=teams[m.local],V=teams[m.visit]; if(!L||!V)return;
+     L.pj++;V.pj++; L.gf+=r[0];L.gc+=r[1]; V.gf+=r[1];V.gc+=r[0];
+     if(r[0]>r[1]){L.g++;V.p++;} else if(r[0]<r[1]){V.g++;L.p++;} else {L.e++;V.e++;}});
+   const arr=Object.values(teams).map(x=>({...x,dg:x.gf-x.gc,pts:x.g*3+x.e}));
+   arr.sort((a,b)=>b.pts-a.pts||b.dg-a.dg||b.gf-a.gf||a.t.localeCompare(b.t));
+   out[g]=arr;
+ });
+ return out;
+}
+
+/* ---------- render ---------- */
+let PROF=null;
+function playerProfile(p){
+ const fm=MATCHES.filter(m=>isFinal(m.id)&&m.preds[p]).sort((a,b)=>dayNum(a.fecha)-dayNum(b.fecha)||a.id.localeCompare(b.id));
+ let played=0,hits=0,ex=0,gn=0,run=0,best=0,exactL=[],zeroL=[];
+ fm.forEach(m=>{ const r=realOf(m.id),pr=m.preds[p],x=ptsFor(pr,r); played++;
+   if(x>=1){hits++;run++;best=Math.max(best,run);} else run=0;
+   if(x===3){ex++;exactL.push({m,pr,r,goals:r[0]+r[1]});}
+   else if(x===1)gn++;
+   else zeroL.push({m,pr,r,margin:Math.abs(r[0]-r[1]),opp:sign(pr[0]-pr[1])!==sign(r[0]-r[1])});});
+ const acc=played?Math.round(hits/played*100):0;
+ const bestP=exactL.length?exactL.sort((a,b)=>b.goals-a.goals)[0]:null;
+ const opp=zeroL.filter(z=>z.opp);
+ const worstP=opp.length?opp.sort((a,b)=>b.margin-a.margin)[0]:(zeroL.length?zeroL.sort((a,b)=>b.margin-a.margin)[0]:null);
+ return {played,hits,ex,gn,acc,curStreak:run,bestStreak:best,best:bestP,worst:worstP};
+}
+function poolStats(){
+ const fin=MATCHES.filter(m=>isFinal(m.id));
+ const per=fin.map(m=>{ const r=realOf(m.id); let withPred=0,scorers=0,exacts=0;
+   PLAYERS.forEach(p=>{const pr=m.preds[p]; if(!pr)return; withPred++; const x=ptsFor(pr,r); if(x>=1)scorers++; if(x===3)exacts++;});
+   return {m,r,scorers,exacts,withPred};});
+ if(!per.length) return {nFin:0};
+ const mostHit=per.slice().sort((a,b)=>b.scorers-a.scorers)[0];
+ const hardest=per.slice().filter(x=>x.withPred>0).sort((a,b)=>a.scorers-b.scorers)[0];
+ const mostExact=per.slice().sort((a,b)=>b.exacts-a.exacts)[0];
+ const rows=rankByDay(99); const avgPts=Math.round(rows.reduce((s,r)=>s+r.pts,0)/PLAYERS.length*10)/10;
+ const lone=per.filter(x=>x.exacts===1).sort((a,b)=>(b.r[0]+b.r[1])-(a.r[0]+a.r[1]));
+ let bat=null; if(lone.length){bat=lone[0]; bat.who=PLAYERS.find(p=>{const pr=bat.m.preds[p];return pr&&ptsFor(pr,realOf(bat.m.id))===3;});}
+ return {mostHit,hardest,mostExact,avgPts,bat,nFin:fin.length};
+}
+function renderProfile(){
+ const box=document.getElementById('prof');
+ const cur=(PROF&&PLAYERS.includes(PROF))?PROF:(SELP||PLAYERS[0]);
+ const pr=playerProfile(cur);
+ const opts=PLAYERS.map(p=>`<option ${p===cur?'selected':''}>${p}</option>`).join('');
+ const fmt=o=>o?`${o.m.local} ${o.r[0]}-${o.r[1]} ${o.m.visit} <span style="color:var(--mut)">· pronosticó ${o.pr[0]}-${o.pr[1]}</span>`:'—';
+ box.innerHTML=`<div class="head"><strong>Perfil:</strong> <select id="profSel" class="cy">${opts}</select>
+   <span style="color:var(--mut);font-size:12px">sobre ${pr.played} partidos pronosticados</span></div>
+  <div class="tiles">
+   <div class="tile"><b>${pr.acc}%</b><span>acierto</span></div>
+   <div class="tile"><b>${pr.ex}</b><span>exactos</span></div>
+   <div class="tile"><b>${pr.gn}</b><span>ganador/empate</span></div>
+   <div class="tile"><b>${pr.curStreak}</b><span>racha actual</span></div>
+   <div class="tile"><b>${pr.bestStreak}</b><span>mejor racha</span></div></div>
+  <div class="row2">
+   <div class="bw good"><div class="lbl">🎯 Mejor pronóstico</div>${fmt(pr.best)}</div>
+   <div class="bw bad"><div class="lbl">🧱 Peor pronóstico</div>${fmt(pr.worst)}</div></div>`;
+ document.getElementById('profSel').onchange=e=>{PROF=e.target.value;renderProfile();};
+}
+function renderPoolStats(){
+ const box=document.getElementById('pstats'); const s=poolStats();
+ if(!s.nFin){box.innerHTML='<div style="color:var(--mut)">Aún no hay partidos finalizados.</div>';return;}
+ const mm=x=>`${x.m.local} ${x.r[0]}-${x.r[1]} ${x.m.visit}`;
+ let h='';
+ h+=`<div class="ps"><div class="lbl">Más acertado</div><div class="big">${mm(s.mostHit)}</div><div class="sm">${s.mostHit.scorers}/${s.mostHit.withPred} le pegaron</div></div>`;
+ h+=`<div class="ps"><div class="lbl">Más difícil</div><div class="big">${mm(s.hardest)}</div><div class="sm">solo ${s.hardest.scorers}/${s.hardest.withPred} acertaron</div></div>`;
+ h+=`<div class="ps"><div class="lbl">Más exactos</div><div class="big">${mm(s.mostExact)}</div><div class="sm">${s.mostExact.exacts} clavaron el marcador</div></div>`;
+ h+=`<div class="ps"><div class="lbl">Promedio del pool</div><div class="big">${s.avgPts} pts</div><div class="sm">por participante · ${s.nFin} partidos</div></div>`;
+ if(s.bat&&s.bat.who) h+=`<div class="ps"><div class="lbl">Batacazo</div><div class="big">${mm(s.bat)}</div><div class="sm">único en clavarlo: ${s.bat.who}</div></div>`;
+ box.innerHTML=h;
+}
+function renderSelector(){
+ const sel=document.getElementById('who');
+ if(sel.options.length<=1){ PLAYERS.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;sel.appendChild(o);}); }
+ sel.value=SELP||''; sel.className=SELP?'cy':'';
+ sel.onchange=()=>{ SELP=sel.value||null; try{SELP?localStorage.setItem('quiniela_me',SELP):localStorage.removeItem('quiniela_me');}catch(e){} render(); };
 }
 function renderRank(rows){
- const max=Math.max(1,rows[0].pts);let h='';
- rows.forEach((r,i)=>{h+=`<div class="rc ${i===0?'lead':''} ${r.hasLive?'hl':''}"><div class="pos">#${i+1}</div>
-   <div class="nm">${r.p}</div><div class="pt">${r.pts}<small> pts</small>${r.hasLive?`<span class="livep">▲${r.livePts} en vivo</span>`:''}</div>
+ const max=Math.max(1,rows[0].pts); const posNow=posMap(rows);
+ // movimiento vs jornada previa (finalizados)
+ const fd=finishedDates(); let mv={};
+ if(fd.length>=2){ const prev=posMap(rankByDay(dayNum(fd[fd.length-2]))); rows.forEach(r=>{ if(prev[r.p]) mv[r.p]=prev[r.p]-posNow[r.p]; }); }
+ let h='';
+ rows.forEach((r,i)=>{ const me=r.p===SELP; const cls=(i===0?'lead ':'')+(me?'me ':'')+(r.hasLive?'hl':'');
+   let mvb=''; if(r.p in mv){const d=mv[r.p]; mvb=d>0?`<div class="mv up">▲${d}</div>`:d<0?`<div class="mv dn">▼${-d}</div>`:`<div class="mv eq">▬</div>`;}
+   h+=`<div class="rc ${cls}"><div class="pos">#${i+1}</div>${mvb}
+   <div class="nm">${r.p}${me?' ⭐':''}</div>
+   <div class="pt">${r.pts}<small> pts</small>${r.hasLive?`<span class="livep">▲${r.livePts} en vivo</span>`:''}</div>
    <div class="br"><i style="width:${Math.round(r.pts/max*100)}%"></i></div>
    <div class="dt">${r.ex} exactos · ${r.gn} ganador · ${r.ac} aciertos</div></div>`;});
  document.getElementById('rank').innerHTML=h;
- return rows;
+ // me line
+ const me=rows.find(r=>r.p===SELP);
+ document.getElementById('meline').textContent = me?`Vas ${rows.indexOf(me)+1}º con ${me.pts} pts`:'';
+}
+function poisson(l){let L=Math.exp(-l),k=0,p=1;do{k++;p*=Math.random();}while(p>L);return k-1;}
+let _probCache={key:null,res:null};
+function simWinProb(nSims){
+ const fin=MATCHES.filter(m=>isFinal(m.id));
+ const key=fin.length+'|'+fin.map(m=>{const r=realOf(m.id);return m.id+(r?r[0]+'-'+r[1]:'');}).join(',');
+ if(_probCache.key===key) return _probCache.res;
+ const base={}; rankByDay(99).forEach(r=>base[r.p]=r.pts);
+ const rem=MATCHES.filter(m=>!isFinal(m.id));
+ const remData=rem.map(m=>PLAYERS.map(p=>m.preds[p]));
+ const wins={}; PLAYERS.forEach(p=>wins[p]=0); const L=1.35;
+ for(let s=0;s<nSims;s++){
+   const tot=PLAYERS.map(p=>base[p]||0);
+   for(const preds of remData){ const hg=poisson(L),ag=poisson(L),so=Math.sign(hg-ag);
+     for(let i=0;i<PLAYERS.length;i++){const pr=preds[i]; if(!pr)continue;
+       if(pr[0]===hg&&pr[1]===ag)tot[i]+=3; else if(Math.sign(pr[0]-pr[1])===so)tot[i]+=1;}}
+   let mx=-1,wi=[]; for(let i=0;i<tot.length;i++){if(tot[i]>mx){mx=tot[i];wi=[i];}else if(tot[i]===mx)wi.push(i);}
+   const sh=1/wi.length; wi.forEach(i=>wins[PLAYERS[i]]+=sh);
+ }
+ const res=PLAYERS.map(p=>({p,prob:wins[p]/nSims})).sort((a,b)=>b.prob-a.prob);
+ _probCache={key,res}; return res;
+}
+function renderWinProb(){
+ const box=document.getElementById('prob'), note=document.getElementById('probnote');
+ const rem=MATCHES.filter(m=>!isFinal(m.id)).length; const N=rem>0?2500:1;
+ const res=simWinProb(N); const leader=res[0].p; const max=Math.max(0.01,res[0].prob);
+ const top=res.filter(r=>r.prob>=0.005).slice(0,10); const shown=new Set(top.map(r=>r.p));
+ let h=''; top.forEach(r=>{const me=r.p===SELP,isL=r.p===leader;
+   h+=`<div class="row"><div class="nm ${me?'me':isL?'lead':''}">${r.p}${me?' \u2b50':''}</div><div class="bar"><i class="${me?'me':''}" style="width:${Math.round(r.prob/max*100)}%"></i></div><div class="pc ${me?'me':''}">${(r.prob*100).toFixed(1)}%</div></div>`;});
+ if(SELP&&!shown.has(SELP)){const r=res.find(x=>x.p===SELP); if(r) h+=`<div class="row" style="opacity:.85"><div class="nm me">${SELP} \u2b50</div><div class="bar"><i class="me" style="width:${Math.round(r.prob/max*100)}%"></i></div><div class="pc me">${(r.prob*100).toFixed(1)}%</div></div>`;}
+ box.innerHTML=h||'<div style="color:var(--mut)">—</div>';
+ note.textContent = rem>0 ? `Simulación de los ${rem} partidos que faltan (Montecarlo, ${N} escenarios; marcadores modelados con Poisson). Estimación orientativa.` : 'Fase de grupos completa: el ganador ya está definido.';
+}
+function renderEvolution(){
+ const fd=finishedDates(); const el=document.getElementById('evo'), cap=document.getElementById('evocap');
+ if(fd.length<2){ el.innerHTML='<div style="color:var(--mut);font-size:12px;padding:8px">Se dibuja cuando haya al menos 2 jornadas jugadas.</div>'; cap.textContent=''; return; }
+ const days=fd.map(dayNum);
+ const series={}; PLAYERS.forEach(p=>series[p]=[]);
+ days.forEach(d=>{ const r=rankByDay(d); const pm={}; r.forEach(x=>pm[x.p]=x.pts); PLAYERS.forEach(p=>series[p].push(pm[p]||0)); });
+ const W=1000,H=340,mL=34,mR=80,mT=14,mB=26; const n=fd.length;
+ const yMax=Math.max(5,...PLAYERS.map(p=>series[p][n-1]));
+ const X=i=> mL+(W-mL-mR)*(n===1?0:i/(n-1));
+ const Y=v=> mT+(H-mT-mB)*(1-v/yMax);
+ const leader=computeRank()[0].p;
+ let g='';
+ // grid Y
+ for(let k=0;k<=4;k++){const v=Math.round(yMax*k/4);const y=Y(v);
+   g+=`<line x1="${mL}" y1="${y}" x2="${W-mR}" y2="${y}" stroke="#27344d" stroke-width="1"/><text x="${mL-6}" y="${y+3}" fill="#93a1bd" font-size="10" text-anchor="end">${v}</text>`;}
+ // x labels
+ fd.forEach((f,i)=>{ g+=`<text x="${X(i)}" y="${H-8}" fill="#93a1bd" font-size="10" text-anchor="middle">${f.replace('-Jun','')}</text>`;});
+ const line=(p,stroke,wd,op)=>{ const pts=series[p].map((v,i)=>`${X(i)},${Y(v)}`).join(' '); return `<polyline points="${pts}" fill="none" stroke="${stroke}" stroke-width="${wd}" stroke-opacity="${op}" stroke-linejoin="round" stroke-linecap="round"/>`; };
+ // fondo: todos
+ PLAYERS.forEach(p=>{ if(p===leader||p===SELP)return; g+=line(p,'#93a1bd',1.2,.22); });
+ // destacados
+ g+=line(leader,'#c9a227',3,1);
+ g+=`<circle cx="${X(n-1)}" cy="${Y(series[leader][n-1])}" r="3" fill="#c9a227"/><text x="${X(n-1)+6}" y="${Y(series[leader][n-1])+3}" fill="#c9a227" font-size="11" font-weight="700">${leader} (${series[leader][n-1]})</text>`;
+ if(SELP&&SELP!==leader){ g+=line(SELP,'#36c5d6',3,1);
+   g+=`<circle cx="${X(n-1)}" cy="${Y(series[SELP][n-1])}" r="3" fill="#36c5d6"/><text x="${X(n-1)+6}" y="${Y(series[SELP][n-1])+3}" fill="#36c5d6" font-size="11" font-weight="700">${SELP} (${series[SELP][n-1]})</text>`;}
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+ cap.textContent = SELP? `Dorado: líder · Celeste: ${SELP} · Grises: resto. Puntos acumulados por jornada.` : 'Dorado: líder · Grises: resto. Elegí tu nombre arriba para resaltar tu línea.';
+}
+function renderMVP(){
+ const fd=finishedDates(); const box=document.getElementById('mvp');
+ if(!fd.length){ box.innerHTML='<div style="color:var(--mut)">Aún no hay jornadas finalizadas.</div>'; return; }
+ const cur = (renderMVP._date && fd.includes(renderMVP._date))? renderMVP._date : fd[fd.length-1];
+ const o=ptsForDate(cur); const arr=PLAYERS.map(p=>({p,v:o[p]})).sort((a,b)=>b.v-a.v);
+ const top=arr[0]; const ties=arr.filter(x=>x.v===top.v&&x.v>0).map(x=>x.p);
+ const runners=arr.filter(x=>x.v>0&&x.v<top.v).slice(0,3).map(x=>`${x.p} +${x.v}`);
+ let opts=fd.map(f=>`<option value="${f}" ${f===cur?'selected':''}>${f}</option>`).join('');
+ const champ = top.v>0? (ties.length>1? ties.join(', ') : top.p) : '—';
+ box.innerHTML=`<div class="trophy">🏆</div>
+   <div><div class="who">MVP <b>${champ}</b> ${top.v>0?`· +${top.v}`:''}</div>
+   <div class="det">Más puntos en la jornada del <select id="mvpDate">${opts}</select></div></div>
+   <div class="run">${runners.length?('Siguen: '+runners.join(' · ')):''}</div>`;
+ const ds=document.getElementById('mvpDate'); ds.onchange=()=>{renderMVP._date=ds.value;renderMVP();};
 }
 function renderScorers(){
  const m=['🥇','🥈','🥉'];let h='';(RES.scorers||[]).slice(0,3).forEach((s,i)=>{
-  h+=`<div class="gc g${i+1}"><div class="medal">${m[i]}</div>
-   <div><div class="gn">${s.n}</div><div class="gt">${s.t||''}</div></div>
-   <div class="gg"><b>${s.g}</b><span>goles</span></div></div>`;});
+  h+=`<div class="gc g${i+1}"><div class="medal">${m[i]}</div><div><div class="gn">${s.n||'—'}</div><div class="gt">${s.t||''}</div></div><div class="gg"><b>${s.g??''}</b><span>goles</span></div></div>`;});
  document.getElementById('gol').innerHTML=h;
- document.getElementById('golnote').textContent='Actualizado automáticamente desde football-data.org (adidas Golden Boot).';
+ document.getElementById('golnote').textContent='Actualizado automáticamente (adidas Golden Boot).';
 }
-function renderLive(){
- const el=document.getElementById('live');
- const lives=MATCHES.filter(m=>isLive(m.id));
- if(!lives.length){el.className='';el.innerHTML='';return;}
- let h='<b><span class="dot"></span>EN VIVO</b>';
- lives.forEach(m=>{const r=realOf(m.id)||[0,0];const mn=RES.matches[m.id].min;
-   h+=`<div class="m">${m.local} <span class="sc">${r[0]} - ${r[1]}</span> ${m.visit}${mn?` · <span style="color:var(--mut)">${mn}</span>`:''}</div>`;});
- el.className='on';el.innerHTML=h;
+function renderStandings(){
+ const st=standings(); let h='';
+ Object.keys(st).forEach(g=>{ let rows='';
+   st[g].forEach((t,i)=>{ rows+=`<tr class="${i<2?'q':''}"><td class="t">${t.t}</td><td>${t.pj}</td><td>${t.g}</td><td>${t.e}</td><td>${t.p}</td><td>${t.dg>0?'+':''}${t.dg}</td><td class="pts">${t.pts}</td></tr>`;});
+   h+=`<div class="grp-card"><h3>Grupo ${g}</h3><table><thead><tr><th style="text-align:left">Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>DG</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table></div>`;});
+ document.getElementById('groups').innerHTML=h;
 }
-function header(rows){
- const tot=Object.fromEntries(rows.map(r=>[r.p,r.pts]));const leader=rows[0].p;
- let h='<thead><tr><th class="cnr">Partido</th><th>Gpo</th><th>Resultado</th>';
- PLAYERS.forEach(p=>{h+=`<th class="${p===leader?'lead':''}"><div class="tp">${tot[p]}</div><div class="tn">${p}</div></th>`;});
- return h+'</tr></thead>';
-}
-function realCell(m){
- const r=realOf(m.id);
+function realCell(m){ const r=realOf(m.id);
  if(isLive(m.id)&&r) return `<span class="lv lvlive">${r[0]} - ${r[1]}</span><span class="tag">EN VIVO</span>`;
  if(isFinal(m.id)&&r) return `<span class="lv">${r[0]} - ${r[1]}</span>`;
  return '<span class="pend">—</span>';
 }
 function render(){
- const rows=renderRank(computeRank());const tot=Object.fromEntries(rows.map(r=>[r.p,r.pts]));
- renderScorers();renderLive();
+ renderSelector();
+ const rows=computeRank(); const tot=Object.fromEntries(rows.map(r=>[r.p,r.pts])); const leader=rows[0].p;
+ renderRank(rows); renderWinProb(); renderEvolution(); renderMVP(); renderProfile(); renderPoolStats(); renderScorers(); renderStandings();
+ // live banner
+ const lel=document.getElementById('live'); const lives=MATCHES.filter(m=>isLive(m.id));
+ if(!lives.length){lel.className='';lel.innerHTML='';}
+ else{ let lh='<b><span class="dot"></span>EN VIVO</b>'; lives.forEach(m=>{const r=realOf(m.id)||[0,0];lh+=`<div class="m">${m.local} <span class="sc">${r[0]} - ${r[1]}</span> ${m.visit}</div>`;}); lel.className='on';lel.innerHTML=lh; }
+ // tabla
  const fd=document.getElementById('fDate').value, fg=document.getElementById('fGroup').value;
- const tbl=document.getElementById('tbl');let body='<tbody>',cur='',shown=0,played=0;
+ let body='<tbody>',cur='',shown=0,played=0;
  MATCHES.forEach(m=>{ if(isFinal(m.id))played++; });
- MATCHES.forEach(m=>{
-  if(fd&&m.fecha!==fd)return; if(fg&&m.grupo!==fg)return; shown++;
-  if(m.fecha!==cur){cur=m.fecha;body+=`<tr class="dh"><td colspan="${3+PLAYERS.length}">${m.fecha}</td></tr>`;}
-  const live=isLive(m.id),r=realOf(m.id);
-  body+=`<tr class="${live?'liverow':''}"><td class="match">${m.local} <small style="color:var(--mut)">vs</small> ${m.visit}</td>
-   <td><span class="grp">${m.grupo}</span></td><td class="real">${realCell(m)}</td>`;
+ MATCHES.forEach(m=>{ if(fd&&m.fecha!==fd)return; if(fg&&m.grupo!==fg)return; shown++;
+  const live=isLive(m.id),r=realOf(m.id); const nd=(m.fecha!==cur); cur=m.fecha;
+  body+=`<tr class="${nd?'newday ':''}${live?'liverow':''}"><td class="datecol">${m.fecha}</td><td class="match">${m.local} <small style="color:var(--mut)">vs</small> ${m.visit}</td><td class="gcol"><span class="grp">${m.grupo}</span></td><td class="real">${realCell(m)}</td>`;
   PLAYERS.forEach(p=>{const pr=m.preds[p];let cls='cx',tg='',prov='';
    if(pr){ if(isFinal(m.id)){const x=ptsFor(pr,r);cls=x===3?'c3':x===1?'c1':'c0';tg=x===3?'+3':x===1?'+1':'0';}
      else if(live){const x=ptsFor(pr,r);cls=x===3?'c3':x===1?'c1':'c0';tg=(x?'+'+x:'0');prov='prov';} else cls='';}
-   const txt=pr?`${pr[0]}-${pr[1]}`:'—';
-   body+=`<td class="cell ${cls} ${prov}"><span class="sc">${txt}</span>${tg!==''?`<span class="tg">${tg}</span>`:''}</td>`;});
+   const sc=p===SELP?'selcol':''; const txt=pr?`${pr[0]}-${pr[1]}`:'—';
+   body+=`<td class="cell ${cls} ${prov} ${sc}"><span class="sc">${txt}</span>${tg!==''?`<span class="tg">${tg}</span>`:''}</td>`;});
   body+='</tr>';});
  body+='</tbody>';
+ let head='<thead><tr><th class="cnr-date">Fecha</th><th class="cnr">Partido</th><th class="cnr-g">Gpo</th><th class="cnr-r">Resultado</th>';
+ PLAYERS.forEach(p=>{const c=(p===leader?'lead ':'')+(p===SELP?'selcol':'');head+=`<th class="${c}"><div class="tp">${tot[p]}</div><div class="tn">${p}</div></th>`;});
+ head+='</tr></thead>';
  const anyLive=MATCHES.some(m=>isLive(m.id));
- let foot=`<tfoot><tr><td class="match" colspan="3">TOTAL ${anyLive?'(incl. en vivo)':'(finales)'}</td>`;
- PLAYERS.forEach(p=>foot+=`<td>${tot[p]}</td>`);foot+='</tr></tfoot>';
- tbl.innerHTML=header(rows)+body+foot;
- const up=RES.updated?new Date(RES.updated):null;
- const upTxt=up&&!isNaN(up)?up.toLocaleString('es-EC'):(RES.updated||'—');
- const nLive=MATCHES.filter(m=>isLive(m.id)).length;
- const liveTxt=nLive?` · ${nLive} en vivo (provisional)`:'';
+ let foot=`<tfoot><tr><td class="datecol"></td><td class="ftlabel" colspan="3">TOTAL ${anyLive?'(incl. en vivo)':'(finales)'}</td>`;
+ PLAYERS.forEach(p=>foot+=`<td class="${p===SELP?'selcol':''}">${tot[p]}</td>`);foot+='</tr></tfoot>';
+ document.getElementById('tbl').innerHTML=head+body+foot;
+ const up=RES.updated?new Date(RES.updated):null; const upTxt=up&&!isNaN(up)?up.toLocaleString('es-EC'):(RES.updated||'—');
+ const nLive=lives.length, liveTxt=nLive?` · ${nLive} en vivo (provisional)`:'';
  document.getElementById('sub').textContent=`${played}/72 finalizados${liveTxt} · 18 participantes · 3 pts exacto / 1 pt ganador · datos: ${upTxt}`;
  document.getElementById('prog').textContent=`${played}/72 finalizados · mostrando ${shown}`;
-}
-let lastOk=Date.now();
-async function load(){
- try{const r=await fetch('resultados.json?v='+Date.now(),{cache:'no-store'});
-   if(r.ok){const j=await r.json();RES.matches=j.matches||{};if(j.scorers&&j.scorers.length)RES.scorers=j.scorers;RES.updated=j.updated||null;lastOk=Date.now();}
- }catch(e){console.warn('No se pudo cargar resultados.json',e);}
- render(); tickFresh();
+ tickFresh();
 }
 function tickFresh(){
  const el=document.getElementById('fresh'); if(!el)return;
  if(!RES.updated){el.textContent='';return;}
  const d=new Date(RES.updated); if(isNaN(d)){el.textContent='';return;}
  const s=Math.max(0,Math.round((Date.now()-d.getTime())/1000));
- const rel = s<60?`hace ${s}s` : s<3600?`hace ${Math.floor(s/60)} min` : `hace ${Math.floor(s/3600)} h`;
- el.innerHTML=`<span style="color:#1f9d61">●</span> en vivo · datos actualizados ${rel}`;
+ const rel=s<60?`hace ${s}s`:s<3600?`hace ${Math.floor(s/60)} min`:`hace ${Math.floor(s/3600)} h`;
+ el.innerHTML=`<span style="color:#1f9d61">●</span> datos actualizados ${rel}`;
+}
+let lastOk=Date.now();
+async function load(){
+ try{const r=await fetch('resultados.json?v='+Date.now(),{cache:'no-store'});
+   if(r.ok){const j=await r.json();RES.matches=j.matches||{};if(j.scorers&&j.scorers.length)RES.scorers=j.scorers;RES.updated=j.updated||null;lastOk=Date.now();}
+ }catch(e){console.warn('No se pudo cargar resultados.json',e);}
+ render();
 }
 (function init(){
  [...new Set(MATCHES.map(m=>m.fecha))].forEach(d=>document.getElementById('fDate').innerHTML+=`<option>${d}</option>`);
  [...new Set(MATCHES.map(m=>m.grupo))].sort().forEach(g=>document.getElementById('fGroup').innerHTML+=`<option>${g}</option>`);
- document.getElementById('fDate').onchange=render;document.getElementById('fGroup').onchange=render;
- load();
- setInterval(load, 60000);              // re-consulta datos cada 60s (en sitio, sin recargar)
- setInterval(tickFresh, 1000);          // contador "hace Xs" visible
- setInterval(()=>{ if(Date.now()-lastOk > 6*60000) location.reload(); }, 60000); // respaldo: si falla el fetch 6 min, recarga sola
+ document.getElementById('fDate').onchange=render; document.getElementById('fGroup').onchange=render;
+ load(); setInterval(load,60000); setInterval(tickFresh,1000);
+ setInterval(()=>{ if(Date.now()-lastOk>6*60000) location.reload(); },60000);
 })();
 </script></body></html>
