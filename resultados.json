@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-27T12:23:12Z",
+"updated": "2026-06-27T12:24:09Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -302,10 +302,14 @@
 "rv": 0
 },
 "M61": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 1,
+"rv": 4
 },
 "M62": {
-"st": "TIMED"
+"st": "FINISHED",
+"rl": 5,
+"rv": 0
 },
 "M66": {
 "st": "FINISHED",
@@ -325,7 +329,7 @@
 "M63": {
 "st": "FINISHED",
 "rl": 1,
-"rv": 2
+"rv": 1
 },
 "M67": {
 "st": "TIMED"
