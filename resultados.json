@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-28T02:02:09Z",
+"updated": "2026-06-28T02:06:09Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -352,10 +352,14 @@
 "rv": 1
 },
 "M70": {
-"st": "TIMED"
+"st": "IN_PLAY",
+"rl": 0,
+"rv": 0
 },
 "M69": {
-"st": "TIMED"
+"st": "LIVE",
+"rl": 0,
+"rv": 0
 }
 },
 "scorers": [
