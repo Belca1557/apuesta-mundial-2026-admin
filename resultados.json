@@ -1,5 +1,5 @@
 {
-"updated": "2026-06-30T20:57:10Z",
+"updated": "2026-06-30T21:09:14Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -369,13 +369,13 @@
 "g": 6
 },
 {
-"n": "Erling Haaland",
-"t": "NOR",
-"g": 5
-},
-{
 "n": "Vinicius Junior",
 "t": "BRA",
+"g": 4
+},
+{
+"n": "Kylian Mbappé",
+"t": "FRA",
 "g": 4
 }
 ]
