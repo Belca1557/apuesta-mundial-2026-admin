@@ -1,5 +1,5 @@
 {
-"updated": "2026-07-05T21:43:12Z",
+"updated": "2026-07-05T21:53:10Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -369,14 +369,14 @@
 "g": 7
 },
 {
-"n": "Lionel Messi",
-"t": "ARG",
+"n": "Erling Haaland",
+"t": "NOR",
 "g": 7
 },
 {
-"n": "Erling Haaland",
-"t": "NOR",
-"g": 6
+"n": "Lionel Messi",
+"t": "ARG",
+"g": 7
 }
 ]
 }
