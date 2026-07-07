@@ -1,5 +1,5 @@
 {
-"updated": "2026-07-05T21:53:10Z",
+"updated": "2026-07-07T17:48:12Z",
 "matches": {
 "M01": {
 "st": "FINISHED",
@@ -364,6 +364,11 @@
 },
 "scorers": [
 {
+"n": "Lionel Messi",
+"t": "ARG",
+"g": 8
+},
+{
 "n": "Kylian Mbappé",
 "t": "FRA",
 "g": 7
@@ -371,11 +376,6 @@
 {
 "n": "Erling Haaland",
 "t": "NOR",
-"g": 7
-},
-{
-"n": "Lionel Messi",
-"t": "ARG",
 "g": 7
 }
 ]
